@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('tbl_kelas', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_kelas', 15);
+            $table->enum('level', ['X', 'XI', 'XII']);
             $table->timestamps();
         });
     }

@@ -58,7 +58,7 @@
                     <div class="bg-light text-center rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                         </div>
-                        <h6 class="mb-4">Welcome To Dashboard</h6>
+                        <h6 class="mb-4">Welcome To Dashboard Admin</h6>
                     </div>
                 </div>
             </div>

@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('tbl_nilais', function (Blueprint $table) {
             $table->id();
+            $table->char('nis', 7)->unique();
+            $table->foreignId('id_tapel');
+            $table->foreignId('id_mapel');
+            $table->integer('nilai_pengetahuan');
+            $table->integer('nilai_keterampilan');
             $table->timestamps();
         });
     }

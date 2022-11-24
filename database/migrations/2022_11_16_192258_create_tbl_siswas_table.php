@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('tbl_siswas', function (Blueprint $table) {
             $table->id();
+            $table->char('nis', 7)->unique();
+            $table->string('nama', 100);
+            $table->string('profile')->nullable();
+            $table->foreignId('id_kelas');
+            $table->foreignId('id_jurusan');
+            $table->enum('jk', ['P', 'L']);
+            $table->string('agama', 15);
+            $table->char('nisn', 10)->unique();
             $table->timestamps();
         });
     }

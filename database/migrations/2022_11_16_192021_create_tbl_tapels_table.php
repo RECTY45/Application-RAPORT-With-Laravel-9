@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('tbl_tapels', function (Blueprint $table) {
             $table->id();
+            $table->string('tahun_pelajaran', 20);
+            $table->string('semester', 20);
+            $table->enum('aktif', [0, 1]);
             $table->timestamps();
         });
     }

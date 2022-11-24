@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('tbl_walas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_guru');
+            $table->foreignId('id_kelas');
             $table->timestamps();
         });
     }

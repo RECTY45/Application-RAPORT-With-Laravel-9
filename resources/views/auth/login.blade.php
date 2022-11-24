@@ -27,7 +27,7 @@
                 <div class="elisyam-bg background-01" style="background: url(assets/img/background/background-01.jpg) no-repeat;background-size: cover;">
                     <div class="elisyam-overlay overlay-01"></div>
                     <div class="authentication-col-content mx-auto">
-                        <h1 class="gradient-text-01">
+                        <h1 class="gradient-text-01 text-center">
                             Selamat Datang
                         </h1>
                     </div>

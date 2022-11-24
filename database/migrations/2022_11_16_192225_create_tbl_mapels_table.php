@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('tbl_mapels', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_mapel', 80);
+            $table->integer('kkm');
+            $table->string('level', 5);
+            $table->foreignId('id_jurusan');
             $table->timestamps();
         });
     }
