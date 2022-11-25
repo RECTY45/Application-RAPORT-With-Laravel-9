@@ -9,7 +9,18 @@
         </div>
     </div>
     <!-- Spinner End --> 
-
+                <div class="text-start px-4 pt-3">
+                    <section class="about" id="about">
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <span>
+                                    <p class="font-weight-bold" style="line-height: 10px">Halaman Utama</p>
+                                    <p class="h2">Dashboard</p>
+                                </span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
         <!-- Sale & Revenue Start -->
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
@@ -44,7 +55,7 @@
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-pie fa-3x text-primary"></i>
                         <div class="ms-3">
-                            <p class="mb-2">walas</p>
+                            <p class="mb-2">Walas</p>
                             <h6 class="mb-0">1</h6>
                         </div>
                     </div>
@@ -58,13 +69,13 @@
                     <div class="bg-light text-center rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                         </div>
-                        <h6 class="mb-4">Welcome To Dashboard Admin</h6>
+                        <h6 class="mb-4 font-weight-bold h5">Welcome To Dashboard Admin</h6>
                     </div>
                 </div>
             </div>
         </div>
     
-            <div class="bg-light  rounded-top p-4 position-relative bottom-0 start-0 end-0">
+            <div class="rounded-top p-4 position-relative bottom-0 start-0 end-0">
                 <div class="row mb-1">
                     <div class="col-10">
                         &copy; <a href="https://www.instagram.com/recty.exploit/" >RECTY.Exploit</a>, All Right Reserved. 

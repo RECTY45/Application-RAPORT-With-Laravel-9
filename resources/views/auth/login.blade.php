@@ -43,8 +43,15 @@
                             <img src="{{asset('assets/img/favicon.ico')}}" alt="logo">
                         </a>
                     </div>
+                    @if (Session::has('status'))
+                        <div class="alert alert-success" role="alert">
+                                {{Session::get('message')}}
+                        </div>
+                        
+                    @endif
                     <h3>Log In</h3>
-                    <form class="user" method="POST">
+                    <form action="{{@route('authenticated')}}" method="POST">
+                        @csrf
                         <div class="group material-input">
                             <input type="text" name="username" id="username" required>
                             <span class="highlight"></span>
