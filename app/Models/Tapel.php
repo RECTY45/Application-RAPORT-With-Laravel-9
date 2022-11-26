@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class tbl_guru extends Model
+class Tapel extends Model
 {
     use HasFactory;
 }

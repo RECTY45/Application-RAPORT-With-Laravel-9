@@ -7,12 +7,12 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle mr-2" src="{{asset('assets/img/user.jpg')}}" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle mr-2" src="{{asset('assets/img/users.jpg')}}" alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3 float-left">
-                        <h6 class="mb-0">RECTY.Exploit</h6>
-                        <span>Admin</span>
+                        <h6 class="mb-0">{{Auth::user()->nama_pengguna}}</h6>
+                        <span>{{Auth::user()->role}}</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100 row ">
@@ -20,10 +20,10 @@
                     <p class="px-3 ">Data Master</p>
                     @if (auth()->user()->role === 'admin')
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Manajemen User</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>User</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{ route('user.index') }}" class="dropdown-item">View</a>
-                            <a href="#" class="dropdown-item">Add</a>
+                            <a href="{{ route('user.create')}}" class="dropdown-item">Add</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -64,7 +64,7 @@
                     @endif
 
                     @if(auth()->user()->role === "guru")
-
+                                
                     @endif
                 </div>
             </nav>

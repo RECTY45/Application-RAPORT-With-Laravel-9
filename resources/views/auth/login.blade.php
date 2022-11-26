@@ -43,23 +43,27 @@
                             <img src="{{asset('assets/img/favicon.ico')}}" alt="logo">
                         </a>
                     </div>
-                    @if (Session::has('status'))
-                        <div class="alert alert-success" role="alert">
-                                {{Session::get('message')}}
-                        </div>
-                        
+                    @if (session()->has('success'))
+                    <div class="alert-success p-3 rounded">
+                        {{session('success')}}
+                    </div>
+                    @endif
+                    @if (session()->has('error'))
+                    <div class="alert-danger p-3 rounded">
+                        {{session('error')}}
+                    </div>
                     @endif
                     <h3>Log In</h3>
                     <form action="{{@route('authenticated')}}" method="POST">
                         @csrf
                         <div class="group material-input">
-                            <input type="text" name="username" id="username" required>
+                            <input type="text" name="username" id="username" >
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Username</label>
                         </div>
                         <div class="group material-input">
-                            <input type="password" name="password" id="password" required>
+                            <input type="password" name="password" id="password" >
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Password</label>

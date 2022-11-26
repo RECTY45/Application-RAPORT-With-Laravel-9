@@ -12,7 +12,7 @@
     
     {{-- Table Start --}}
     <div class="card">
-                    <div class="text-start px-4 pt-3">
+                    <div class="px-4 pt-3">
                             <div class="row mb-2">
                                 <div class="col-md-12">
                                     <span>
@@ -21,9 +21,9 @@
                                     </span>
                                 </div>
                             </div>
-                    </div>
-                    <div class="card-header d-flex justify-content-end">
-                        <a href="" class="btn btn-primary">Tambah</a>
+                            <div class="card-header d-flex justify-content-end">
+                                <a href="{{@route('user.create')}}" class="btn btn-primary">Tambah</a>
+                            </div>
                     </div>
                     <div class="card-body">
                         @if (session()->has('success'))
@@ -54,8 +54,8 @@
                                         <td>{{ $user->username }}</td>
                                         <td>{{ $user->role }}</td>
                                         <td>
-                                            <div class="form-control-icon d-flex justify-content-center">
-                                                <a href="" class="bg-success px-2 py-1 rounded text-white mx-1"><i class="bi bi-pen-fill"></i></a>
+                                            <div class="form-control-icon d-flex">
+                                                <a href="#" class="bg-success px-2 py-1 rounded text-white mx-1"><i class="bi bi-pen-fill"></i></a>
                                                 <form action="{{@route('user.destroy', $user->id)}}" method="POST">
                                                     @method('delete')
                                                     @csrf

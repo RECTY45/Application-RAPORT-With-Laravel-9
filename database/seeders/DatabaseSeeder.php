@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         User::create(
             [
                 'id' => 1,
-                'nama_pengguna' => 'recty',
+                'nama_pengguna' => 'RECTY.Exploit',
                 'username' => 'admin',
                 'password' => bcrypt('admin'),
                 'role' => 'admin',
@@ -34,10 +34,30 @@ class DatabaseSeeder extends Seeder
             User::create(
                 [
                     'id' => 2,
-                    'nama_pengguna' => 'zhaka',
+                    'nama_pengguna' => 'Zhaka Hidayat Yasir',
                     'username' => 'zhaka',
                     'password' => bcrypt('zhaka'),
-                    'role' => 'siswa',
+                    'role' => 'Siswa',
+        
+                ]);
+
+            User::create(
+                [
+                    'id' => 3,
+                    'nama_pengguna' => 'Yasir Sensei',
+                    'username' => 'yasir',
+                    'password' => bcrypt('yasir'),
+                    'role' => 'guru',
+        
+                ]);
+
+            User::create(
+                [
+                    'id' => 4,
+                    'nama_pengguna' => 'zulfaidah',
+                    'username' => 'zulfa',
+                    'password' => bcrypt('zulfa'),
+                    'role' => 'walas',
         
                 ]);
     }
