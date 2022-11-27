@@ -11,8 +11,8 @@
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3 float-left">
-                        <h6 class="mb-0">{{Auth::user()->nama_pengguna}}</h6>
-                        <span>{{Auth::user()->role}}</span>
+                        <h6 class="mb-0">{{auth()->user()->nama_pengguna}}</h6>
+                        <span>{{auth()->user()->role}}</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100 row ">

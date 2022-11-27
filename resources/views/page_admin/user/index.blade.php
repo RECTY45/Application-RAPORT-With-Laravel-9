@@ -8,8 +8,8 @@
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-    <!-- Spinner End --> 
-    
+    <!-- Spinner End -->
+
     {{-- Table Start --}}
     <div class="card">
                     <div class="px-4 pt-3">
@@ -55,7 +55,7 @@
                                         <td>{{ $user->role }}</td>
                                         <td>
                                             <div class="form-control-icon d-flex">
-                                                <a href="#" class="bg-success px-2 py-1 rounded text-white mx-1"><i class="bi bi-pen-fill"></i></a>
+                                                <a href="{{@route('user.edit',$user->id)}}" class="bg-success px-2 py-1 rounded text-white mx-1"><i class="bi bi-pen-fill"></i></a>
                                                 <form action="{{@route('user.destroy', $user->id)}}" method="POST">
                                                     @method('delete')
                                                     @csrf
@@ -74,12 +74,12 @@
                     </div>
                 </div>
                 {{-- Table End --}}
-    
+
             <div class="rounded-top p-4 position-relative bottom-0 start-0 end-0">
                 <div class="row mb-1">
                     <div class="col-10">
-                        &copy; <a href="https://www.instagram.com/recty.exploit/" >RECTY.Exploit</a>, All Right Reserved. 
-                    </div> 
+                        &copy; <a href="https://www.instagram.com/recty.exploit/" >RECTY.Exploit</a>, All Right Reserved.
+                    </div>
                 </div>
             </div>
         <!-- Footer End -->

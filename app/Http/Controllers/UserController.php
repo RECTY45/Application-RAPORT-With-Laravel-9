@@ -16,8 +16,8 @@ class UserController extends Controller
     {
         $users = User::all();
         return view('page_admin.user.index', [
-            'name' => 'HOME',
-            'users' => $users,  
+            'name' => 'USERS',
+            'users' => $users,
         ]);
     }
 
@@ -41,7 +41,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'nama_pengguna' => ['required'],
+            'username' => ['required'],
+            'role' => ['required'],
+            'password' => ['required'],
+        ]);
+
+        $validateData['password'] = bcrypt($validateData['password']);
+
+        if($validateData){
+            $check = User::create($validateData);
+        }
+
+        if($check){
+            return redirect(@route('user.index'))->with('success','Data berhasil ditambah');
+        }
+
+        return back()->with('error', 'Data gagal ditambah');
     }
 
     /**
@@ -63,7 +80,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('page_admin.user.edit', [
+            'name' => 'EDIT',
+            'item' => $user,
+        ]);
     }
 
     /**
@@ -75,7 +95,21 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validateData = $request->validate([
+            'nama_pengguna' => ['required'],
+            'username' => ['required'],
+            'role' => ['required'],
+        ]);
+
+        if($validateData){
+            $check = $user->update($validateData);
+        }
+
+        if($check){
+            return redirect(route('user.index'))->with('success', 'Data berhasil di edit');
+        }
+
+        return back()->with('error','Data gagal di edit');
     }
 
     /**

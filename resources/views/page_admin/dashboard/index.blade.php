@@ -8,7 +8,7 @@
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-    <!-- Spinner End --> 
+    <!-- Spinner End -->
                 <div class="text-start px-4 pt-3">
                     <section class="about" id="about">
                         <div class="row mb-2">
@@ -28,8 +28,8 @@
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-line fa-3x text-primary"></i>
                         <div class="ms-3">
-                            <p class="mb-2">guru</p>
-                            <h6 class="mb-0">80</h6>
+                            <p class="mb-2">user</p>
+                            <h6 class="mb-0">{{$jmlUser}}</h6>
                         </div>
                     </div>
                 </div>
@@ -69,17 +69,17 @@
                     <div class="bg-light text-center rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                         </div>
-                        <h6 class="mb-4 font-weight-bold h5">Welcome To Dasboard {{Auth::user()->role}}</h6>
+                        <h6 class="mb-4 font-weight-bold h5">Welcome To Dasboard </h6>
                     </div>
                 </div>
             </div>
         </div>
-    
+
             <div class="rounded-top p-4 position-relative bottom-0 start-0 end-0">
                 <div class="row mb-1">
                     <div class="col-10">
-                        &copy; <a href="https://www.instagram.com/recty.exploit/" >RECTY.Exploit</a>, All Right Reserved. 
-                    </div> 
+                        &copy; <a href="https://www.instagram.com/recty.exploit/" >RECTY.Exploit</a>, All Right Reserved.
+                    </div>
                 </div>
             </div>
         <!-- Footer End -->

@@ -8,24 +8,24 @@
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-    <!-- Spinner End --> 
-    
+    <!-- Spinner End -->
+
     {{-- Table Start --}}
                     <div class="text-start px-4 pt-3">
                             <div class="row mb-2">
                                 <div class="col-md-12">
                                     <span>
                                         <p class="font-weight-bold" style="line-height: 10px" >Data Manajemen User</p>
-                                        <p class="h2">Kelola Data Manajemen User</p>
+                                        <p class="h2">Tambah Data Manajemen User</p>
                                     </span>
                                 </div>
                             </div>
                     </div>
 
-                  
+
                     <div class="card-body">
-                        <form action="{{@route('user.create')}}" method="POST">
-                            @csrf  
+                        <form action="{{@route('user.store')}}" method="POST">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -54,20 +54,20 @@
                                 </div>
                                 <div class="form-group px-3">
                                     <button type="submit" class="btn btn-sm btn-primary">Rekam</button>
-                                    
+
                                     <a href="{{@route('user.index')}}" type="button" class="btn btn-sm btn-success">Batal</a>
                                 </div>
-                            </div>                  
-                        </form>        
-                        </div>           
+                            </div>
+                        </form>
+                        </div>
 
             <div class="rounded-top p-4 position-relative bottom-0 start-0 end-0">
                 <div class="row mb-1">
                     <div class="col-10">
-                        &copy; <a href="https://www.instagram.com/recty.exploit/" >RECTY.Exploit</a>, All Right Reserved. 
-                    </div> 
+                        &copy; <a href="https://www.instagram.com/recty.exploit/" >RECTY.Exploit</a>, All Right Reserved.
+                    </div>
                 </div>
-            </div>   
+            </div>
 
         <!-- Footer End -->
 @endsection

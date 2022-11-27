@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Tapel extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
+    protected $table = 'tbl_tapels';
 }

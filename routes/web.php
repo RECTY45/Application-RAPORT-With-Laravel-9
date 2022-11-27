@@ -20,9 +20,9 @@ Route::get('/', [LoginController::class, 'Login'])->name('AuthLogin')->middlewar
 Route::post('/', [LoginController::class, 'AuthLogin'])->name('authenticated');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-   // Page Dashboard 
-Route::get('/pages/dashboard', [DashboardController::class, 'Dashboard'])->middleware('auth');
- 
+   // Page Dashboard
+Route::get('/pages/dashboard', [DashboardController::class, 'dashboard'])->middleware('auth');
+
 
 //PAGE ADMIN USER
 
@@ -31,13 +31,13 @@ Route::get('/pages/dashboard/user', [UserController::class, 'index'])->name('use
 //DELETE
 Route::delete('/pages/dashboard/user/{user:id}', [UserController::class,'destroy'])->name('user.destroy');
 //CREATE
-Route::get('/pages/dashboard/user/create',[UserController::class, 'create'])->name('user.create');
+Route::get('/pages/dashboard/user/create',[UserController::class, 'create'])->name('user.create')->middleware('admin');
 //STORE
-Route::post('/pages/dashboard/user/create', [UserController::class, 'store'])->name('user.store');
+Route::post('/pages/dashboard/user/create', [UserController::class, 'store'])->name('user.store')->middleware('admin');
 //EDIT
-Route::get('/page/dashboard/user/{user:id}/edit',[UserController::class,'edit'])->name('user.edit');
+Route::get('/pages/dashboard/user/{user:id}/edit',[UserController::class,'edit'])->name('user.edit')->middleware('admin');
 //UPDATE
-Route::put('/pages/dashboard/user/update/{user:id}',[UserController::class,'update'])->name('user.update');
+Route::put('/pages/dashboard/user/{user:id}',[UserController::class,'update'])->name('user.update')->middleware('admin');
 
 
 //PAGE ADMIN KELAS
@@ -51,6 +51,6 @@ Route::get('/pages/dashboard/kelas/create',[KelasController::class, 'create'])->
 //STORE
 Route::post('/pages/dashboard/kelas/create', [KelasController::class, 'store'])->name('kelas.store');
 //EDIT
-Route::get('/page/dashboard/kelas/{user:id}/edit',[KelasController::class,'edit'])->name('kelas.edit');
+Route::get('/page/dashboard/kelas/{kelas:id}/edit',[KelasController::class,'edit'])->name('kelas.edit');
 //UPDATE
-Route::put('/pages/dashboard/kelas/update/{user:id}',[KelasController::class,'update'])->name('kelas.update');
+Route::put('/pages/dashboard/kelas/update/{kelas:id}',[KelasController::class,'update'])->name('kelas.update');
