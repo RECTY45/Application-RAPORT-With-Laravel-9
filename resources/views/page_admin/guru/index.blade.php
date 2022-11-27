@@ -8,7 +8,7 @@
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-    <!-- Spinner End --> 
+    <!-- Spinner End -->
                 <div class="text-start px-4 pt-3">
                     <section class="about" id="about">
                         <div class="row mb-2">
@@ -21,14 +21,51 @@
                         </div>
                     </section>
                 </div>
+                <table class="table" id="table1">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Guru</th>
+                            <th>Nama Mapel</th>
+                            <th>Nilai KKM</th>
+                            <th>Level</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($items as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->nama_guru }}</td>
+                                <td>{{ $item->mapel->nama_mapel }}</td>
+                                <td>{{ $item->mapel->kkm }}</td>
+                                <td>{{ $item->mapel->level }}</td>
+                                <td>
+                                    <div class="form-control-icon d-flex">
+                                        <a href="" class="bg-success px-2 py-1 rounded text-white mx-1"><i class="bi bi-pen-fill"></i></a>
+                                        <form action="" method="POST">
+                                            @method('delete')
+                                            @csrf
+                                            <button type="submit" class="border-0 bg-danger px-2 py-1 rounded text-white mx-1"><i class="bi bi-trash"></i></button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <div>
+                                <span>Data not found</span>
+                            </div>
+                        @endforelse
+                    </tbody>
+                </table>
     {{-- Table Start --}}
 
     {{-- Table End --}}
             <div class="rounded-top p-4 position-relative bottom-0 start-0 end-0">
                 <div class="row mb-1">
                     <div class="col-10">
-                        &copy; <a href="https://www.instagram.com/recty.exploit/" >RECTY.Exploit</a>, All Right Reserved. 
-                    </div> 
+                        &copy; <a href="https://www.instagram.com/recty.exploit/" >RECTY.Exploit</a>, All Right Reserved.
+                    </div>
                 </div>
             </div>
         <!-- Footer End -->

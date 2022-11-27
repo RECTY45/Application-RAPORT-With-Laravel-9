@@ -14,7 +14,11 @@ class GuruController extends Controller
      */
     public function index()
     {
-        //
+        $items = Guru::all();
+        return view('page_admin.guru.index',[
+            'name' => 'GURU',
+            'items' => $items,
+        ]);
     }
 
     /**

@@ -5,6 +5,8 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Guru;
+use App\Models\Mapel;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -21,44 +23,64 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        User::create(
-            [
-                'id' => 1,
-                'nama_pengguna' => 'RECTY.Exploit',
-                'username' => 'admin',
-                'password' => bcrypt('admin'),
-                'role' => 'admin',
-    
-            ]);
+            $gurus = [
+                [
+                    'nama_guru' => 'Bintang Sensei',
+                    'id_mapel' => 1,
+                ]
+                ];
 
-            User::create(
+            $mapels = [
+                [
+                    'nama_mapel' => 'matematika',
+                    'kkm' => '75',
+                    'level' => 'XI',
+                    'id_jurusan' => 1,
+                ]
+                ];
+
+
+            $users = [
+                [
+                    'id' => 1,
+                    'nama_pengguna' => 'RECTY.Exploit',
+                    'username' => 'admin',
+                    'password' => bcrypt('admin'),
+                    'role' => 'admin',
+                ],
                 [
                     'id' => 2,
                     'nama_pengguna' => 'Zhaka Hidayat Yasir',
                     'username' => 'zhaka',
                     'password' => bcrypt('zhaka'),
                     'role' => 'Siswa',
-        
-                ]);
-
-            User::create(
+                ],
                 [
                     'id' => 3,
                     'nama_pengguna' => 'Yasir Sensei',
                     'username' => 'yasir',
                     'password' => bcrypt('yasir'),
                     'role' => 'guru',
-        
-                ]);
-
-            User::create(
+                ],
                 [
                     'id' => 4,
                     'nama_pengguna' => 'zulfaidah',
                     'username' => 'zulfa',
                     'password' => bcrypt('zulfa'),
                     'role' => 'walas',
-        
-                ]);
+                ],
+                ];
+
+                foreach($users as $user){
+                    User::create($user);
+                }
+
+                foreach($mapels as $mapel){
+                    Mapel::create($mapel);
+                }
+
+                foreach($gurus as $guru){
+                    Guru::create($guru);
+                }
     }
 }

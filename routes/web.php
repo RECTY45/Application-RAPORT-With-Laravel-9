@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\GuruController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,3 +55,16 @@ Route::post('/pages/dashboard/kelas/create', [KelasController::class, 'store'])-
 Route::get('/page/dashboard/kelas/{kelas:id}/edit',[KelasController::class,'edit'])->name('kelas.edit');
 //UPDATE
 Route::put('/pages/dashboard/kelas/update/{kelas:id}',[KelasController::class,'update'])->name('kelas.update');
+
+//RECORD
+Route::get('/pages/dashboard/guru', [GuruController::class, 'index'])->name('guru.index')->middleware('admin');
+//DELETE
+Route::delete('/pages/dashboard/guru/{guru:id}', [GuruController::class,'destroy'])->name('guru.destroy');
+//CREATE
+Route::get('/pages/dashboard/guru/create',[GuruController::class, 'create'])->name('guru.create');
+//STORE
+Route::post('/pages/dashboard/guru/create', [GuruController::class, 'store'])->name('guru.store');
+//EDIT
+Route::get('/page/dashboard/guru/{guru:id}/edit',[GuruController::class,'edit'])->name('guru.edit');
+//UPDATE
+Route::put('/pages/dashboard/guru/update/{guru:id}',[GuruController::class,'update'])->name('guru.update');
