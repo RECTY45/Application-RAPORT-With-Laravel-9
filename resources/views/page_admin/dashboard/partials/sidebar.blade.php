@@ -64,7 +64,12 @@
                     @endif
 
                     @if(auth()->user()->role === "guru")
-                                
+
+                    @endif
+
+                    @if(auth()->user()->role === "walas")
+                    @endif
+                    @if(auth()->user()->role === "siswa")
                     @endif
                 </div>
             </nav>

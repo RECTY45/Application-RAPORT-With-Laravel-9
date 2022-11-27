@@ -11,4 +11,12 @@ class Kelas extends Model
     protected $guarded = ['id'];
     protected $table = 'tbl_kelas';
 
+    public function siswa(){
+        return $this->hasMany(Siswa::class);
+    }
+
+    public function walas(){
+        return $this->hasMany(Walas::class);
+    }
+
 }

@@ -10,4 +10,12 @@ class Jurusan extends Model
     use HasFactory;
     protected $guarded = ['id'];
     protected $table = 'tbl_jurusans';
+
+    public function mapel(){
+        return $this->hasMany(Mapel::class);
+    }
+
+    public function siswa(){
+        return $this->hasMany(Siswa::class);
+    }
 }
