@@ -27,7 +27,27 @@ class DatabaseSeeder extends Seeder
                 [
                     'nama_guru' => 'Bintang Sensei',
                     'id_mapel' => 1,
-                ]
+                ],
+                [
+                    'nama_guru' => 'Zhaka Sensei',
+                    'id_mapel' => 2,
+                ],
+                [
+                    'nama_guru' => 'Fery Sensei',
+                    'id_mapel' => 3,
+                ],
+                [
+                    'nama_guru' => 'Salim Sensei',
+                    'id_mapel' => 4,
+                ],
+                [
+                    'nama_guru' => 'Aris Sensei',
+                    'id_mapel' => 5,
+                ],
+                [
+                    'nama_guru' => 'Syahru Sensei',
+                    'id_mapel' => 6,
+                ],
                 ];
 
             $mapels = [
@@ -36,7 +56,37 @@ class DatabaseSeeder extends Seeder
                     'kkm' => '75',
                     'level' => 'XI',
                     'id_jurusan' => 1,
-                ]
+                ],
+                [
+                    'nama_mapel' => 'PBO',
+                    'kkm' => '85',
+                    'level' => 'XI',
+                    'id_jurusan' => 2,
+                ],
+                [
+                    'nama_mapel' => 'PWM',
+                    'kkm' => '95',
+                    'level' => 'XI',
+                    'id_jurusan' => 3,
+                ],
+                [
+                    'nama_mapel' => 'PAI',
+                    'kkm' => '88',
+                    'level' => 'XI',
+                    'id_jurusan' => 4,
+                ],
+                [
+                    'nama_mapel' => 'PKN',
+                    'kkm' => '76',
+                    'level' => 'XI',
+                    'id_jurusan' => 5,
+                ],
+                [
+                    'nama_mapel' => 'PKKP',
+                    'kkm' => '77',
+                    'level' => 'XI',
+                    'id_jurusan' => 6,
+                ],
                 ];
 
 

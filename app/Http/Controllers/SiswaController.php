@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Guru;
-use App\Models\Mapel;
 use Illuminate\Http\Request;
 
-class GuruController extends Controller
+class SiswaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +13,7 @@ class GuruController extends Controller
      */
     public function index()
     {
-        $items = Guru::all();
-        return view('page_admin.guru.index',[
-            'name' => 'GURU',
-            'items' => $items,
-        ]);
+        //
     }
 
     /**
@@ -29,8 +23,7 @@ class GuruController extends Controller
      */
     public function create()
     {
-        return view('page_admin.guru.create',[
-        'name' => 'TAMBAH']);
+        //
     }
 
     /**
@@ -41,31 +34,16 @@ class GuruController extends Controller
      */
     public function store(Request $request)
     {
-        $idMapel = Mapel::pluck('id')->toArray();
-
-        $validateData = $request->validate([
-         'nama_guru' => ['required'],
-         'id_mapel' =>  ['required', Rule::in($idMapel)],
-
-        ]);
-
-        if($validateData){
-            $check = Guru::create($validateData);
-        }
-
-        if($check){
-             return redirect(@route('guru.index'))->with('success', 'Data berhasil di tambah');
-        }
-        return back()->with('error', 'Data gagal di tambah');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Guru  $guru
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Guru $guru)
+    public function show($id)
     {
         //
     }
@@ -73,10 +51,10 @@ class GuruController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Guru  $guru
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Guru $guru)
+    public function edit($id)
     {
         //
     }
@@ -85,10 +63,10 @@ class GuruController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Guru  $guru
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Guru $guru)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -96,10 +74,10 @@ class GuruController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Guru  $guru
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Guru $guru)
+    public function destroy($id)
     {
         //
     }

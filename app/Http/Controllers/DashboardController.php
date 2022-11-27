@@ -13,10 +13,10 @@ class DashboardController extends Controller
     public function dashboard(){
 
         // $jmlGuru = "Model Guru Bermasalah";
-        $jmlUser = count(User::all());
+        $jmlguru = count(Guru::all());
         return view('page_admin.dashboard.index',[
             'name' => 'DASHBOARD',
-            'jmlUser' => $jmlUser,
+            'jmlGuru' => $jmlguru,
 
         ]);
     }
