@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Guru;
 use App\Models\Mapel;
 use Illuminate\Http\Request;
-
+use Illuminate\Validation\Rule;
 class GuruController extends Controller
 {
     /**
@@ -30,7 +30,9 @@ class GuruController extends Controller
     public function create()
     {
         return view('page_admin.guru.create',[
-        'name' => 'TAMBAH']);
+            'name' => 'TAMBAH',
+            'mapel' => Mapel::all()
+        ]);
     }
 
     /**
@@ -49,9 +51,7 @@ class GuruController extends Controller
 
         ]);
 
-        if($validateData){
-            $check = Guru::create($validateData);
-        }
+        $check = Guru::create($validateData);
 
         if($check){
              return redirect(@route('guru.index'))->with('success', 'Data berhasil di tambah');

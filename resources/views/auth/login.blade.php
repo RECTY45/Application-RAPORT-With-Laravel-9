@@ -57,16 +57,26 @@
                     <form action="{{@route('authenticated')}}" method="POST">
                         @csrf
                         <div class="group material-input">
-                            <input type="text" name="username" id="username" >
+                            <input type="text" name="username" id="username" class="form-control @error('username')is-invalid @enderror">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Username</label>
+                            @error('username')
+                            <div class="invalid-feedback">
+                                    {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                         <div class="group material-input">
-                            <input type="password" name="password" id="password" >
+                            <input type="password" name="password" id="password" class="form-control @error('password')is-invalid @enderror">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Password</label>
+                            @error('password')
+                            <div class="invalid-feedback">
+                                    {{ $message }}
+                            </div>
+                            @enderror
                         </div>
 
                         <div class="row">

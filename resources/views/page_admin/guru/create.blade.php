@@ -30,25 +30,28 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Nama Guru</label>
-                                        <input type="text" name="nama_pengguna" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Nama Mapel</label>
-                                        <input type="text" name="username" class="form-control">
+                                        <input type="text" name="nama_guru" class="form-control @error('nama_guru')is-invalid @enderror">
+                                        @error('nama_guru')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Nilai KKM</label>
-                                        <input type="text" name="text" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Role</label>
-                                        <select name="role" class="form-control">
-                                            <option value="X">X</option>
-                                            <option value="XI">XI</option>
-                                            <option value="XII">XII</option>
+                                        <label>Mapel</label>
+                                        <select name="id_mapel" class="form-control @error('id_mapel')is-invalid @enderror">
+                                            <option value="">- Pilih Mapel -</option>
+                                            @foreach ($mapel as $mapel)
+                                                <option value="{{ $mapel->id }}">{{ $mapel->nama_mapel }}</option>
+                                            @endforeach
                                         </select>
+                                        @error('id_mapel')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group px-3">

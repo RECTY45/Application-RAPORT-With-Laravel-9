@@ -29,11 +29,23 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Nama Pengguna</label>
-                        <input value="{{ $item->nama_pengguna }}" type="text" name="nama_pengguna" class="form-control">
+                        <input value="{{ old('nama_pengguna', $item->nama_pengguna) }}" type="text" name="nama_pengguna" class="form-control @error('nama_pengguna')is-invalid @enderror">
+
+                        @error('nama_pengguna')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     </div>
                     <div class="form-group">
                         <label>Username</label>
-                        <input value="{{ $item->username }}" type="text" name="username" class="form-control">
+                        <input value="{{ old('username', $item->username) }}" type="text" name="username" class="form-control @error('username')is-invalid @enderror">
+
+                        @error('username')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     </div>
                     <div class="form-group">
                         <label>Role</label>
@@ -41,6 +53,7 @@
                             @if ($item->role)
                                 <option selected value="{{ $item->role }}">{{ $item->role }}</option>
                             @endif
+                            <option value="">- Pilih Role -</option>
                             <option value="Admin">Admin</option>
                             <option value="Guru">Guru</option>
                             <option value="Walas">Wali Kelas</option>

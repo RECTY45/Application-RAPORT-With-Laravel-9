@@ -51,9 +51,9 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->nama_guru }}</td>
-                            <td>{{ $item->mapel->nama_mapel }}</td>
-                            <td>{{ $item->mapel->kkm }}</td>
-                            <td>{{ $item->mapel->level }}</td>
+                            <td>{{ $item->mapel->nama_mapel ?? '-' }}</td>
+                            <td>{{ $item->mapel->kkm ?? '-' }}</td>
+                            <td>{{ $item->mapel->level ?? '-' }}</td>
                             <td>
                                 <div class="form-control-icon d-flex">
                                     <a href="" class="bg-success px-2 py-1 rounded text-white mx-1"><i

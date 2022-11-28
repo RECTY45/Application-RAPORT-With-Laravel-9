@@ -72,7 +72,7 @@ class DatabaseSeeder extends Seeder
                 [
                     'nama_mapel' => 'PAI',
                     'kkm' => '88',
-                    'level' => 'XI',
+                    'level' => 'XII',
                     'id_jurusan' => 4,
                 ],
                 [
@@ -84,7 +84,7 @@ class DatabaseSeeder extends Seeder
                 [
                     'nama_mapel' => 'PKKP',
                     'kkm' => '77',
-                    'level' => 'XI',
+                    'level' => 'X',
                     'id_jurusan' => 6,
                 ],
                 ];
