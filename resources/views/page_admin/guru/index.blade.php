@@ -56,9 +56,9 @@
                             <td>{{ $item->mapel->level ?? '-' }}</td>
                             <td>
                                 <div class="form-control-icon d-flex">
-                                    <a href="" class="bg-success px-2 py-1 rounded text-white mx-1"><i
+                                    <a href="" method="POST" class="bg-success px-2 py-1 rounded text-white mx-1"><i
                                             class="bi bi-pen-fill"></i></a>
-                                    <form action="" method="POST">
+                                    <form action="{{ @route('guru.destroy', $item->id) }}" method="POST">
                                         @method('delete')
                                         @csrf
                                         <button type="submit"

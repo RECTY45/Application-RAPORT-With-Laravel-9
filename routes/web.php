@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\MapelController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,7 +44,7 @@ Route::put('/pages/dashboard/user/{user:id}',[UserController::class,'update'])->
 
 //PAGE ADMIN KELAS
 
-//RECORD
+//RECORD KELAS
 Route::get('/pages/dashboard/kelas', [KelasController::class, 'index'])->name('kelas.index')->middleware('admin');
 //DELETE
 Route::delete('/pages/dashboard/kelas/{user:id}', [KelasController::class,'destroy'])->name('kelas.destroy');
@@ -56,7 +57,7 @@ Route::get('/page/dashboard/kelas/{kelas:id}/edit',[KelasController::class,'edit
 //UPDATE
 Route::put('/pages/dashboard/kelas/update/{kelas:id}',[KelasController::class,'update'])->name('kelas.update');
 
-//RECORD
+//RECORD GURU
 Route::get('/pages/dashboard/guru', [GuruController::class, 'index'])->name('guru.index')->middleware('admin');
 //DELETE
 Route::delete('/pages/dashboard/guru/{guru:id}', [GuruController::class,'destroy'])->name('guru.destroy');

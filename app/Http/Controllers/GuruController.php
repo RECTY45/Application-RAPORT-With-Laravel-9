@@ -101,6 +101,11 @@ class GuruController extends Controller
      */
     public function destroy(Guru $guru)
     {
-        //
+        $check = $guru->delete();
+
+        if($check){
+            return back()->with('success','Data berhasil di hapus');
+        }
+            return back()->with('error','Data gagal di hapus');
     }
 }
