@@ -41,7 +41,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Mapel</label>
-                                        <select name="id_mapel" class="form-control @error('id_mapel')is-invalid @enderror">
+                                        <select name="id_mapel" class="form-control">
                                             <option value="">- Pilih Mapel -</option>
                                             @foreach ($mapel as $mapel)
                                                 <option value="{{ $mapel->id }}">{{ $mapel->nama_mapel }}</option>

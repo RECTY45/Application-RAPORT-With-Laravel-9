@@ -106,9 +106,9 @@ class GuruController extends Controller
         $check = $guru->update($validateData);
 
         if($check){
-             return redirect(@route('guru.index'))->with('success', 'Data berhasil di tambah');
+             return redirect(@route('guru.index'))->with('success', 'Data berhasil di Update');
         }
-        return back()->with('error', 'Data gagal di tambah');
+        return back()->with('error', 'Data gagal di Update');
     }
 
     /**

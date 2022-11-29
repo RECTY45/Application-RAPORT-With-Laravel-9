@@ -16,7 +16,7 @@
                                 <div class="col-md-12">
                                     <span>
                                         <p class="font-weight-bold" style="line-height: 10px" >Data Guru</p>
-                                        <p class="h2">Tambah Data Guru</p>
+                                        <p class="h2">Edit Data Guru</p>
                                     </span>
                                 </div>
                             </div>
