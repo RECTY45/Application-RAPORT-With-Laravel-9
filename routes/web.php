@@ -23,7 +23,7 @@ Route::post('/', [LoginController::class, 'AuthLogin'])->name('authenticated');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
    // Page Dashboard
-Route::get('/pages/dashboard', [DashboardController::class, 'dashboard'])->middleware('auth');
+Route::get('/pages/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard.index')->middleware('auth');
 
 
 //PAGE ADMIN USER

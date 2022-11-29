@@ -29,9 +29,10 @@ class GuruController extends Controller
      */
     public function create()
     {
+       $items = Mapel::all();
         return view('page_admin.guru.create',[
             'name' => 'TAMBAH',
-            'mapel' => Mapel::all()
+            'mapel' => $items,
         ]);
     }
 
@@ -78,7 +79,11 @@ class GuruController extends Controller
      */
     public function edit(Guru $guru)
     {
-        //
+        return view('page_admin.guru.edit',[
+            'name' => 'EDIT',
+            'items'=> $guru,
+            'mapel'=> Mapel::all()
+        ]);
     }
 
     /**
@@ -90,7 +95,20 @@ class GuruController extends Controller
      */
     public function update(Request $request, Guru $guru)
     {
-        //
+        $idMapel = Mapel::pluck('id')->toArray();
+
+        $validateData = $request->validate([
+         'nama_guru' => ['required'],
+         'id_mapel' =>  ['required', Rule::in($idMapel)],
+
+        ]);
+
+        $check = $guru->update($validateData);
+
+        if($check){
+             return redirect(@route('guru.index'))->with('success', 'Data berhasil di tambah');
+        }
+        return back()->with('error', 'Data gagal di tambah');
     }
 
     /**

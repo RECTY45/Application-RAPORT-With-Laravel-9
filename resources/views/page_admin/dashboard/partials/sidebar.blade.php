@@ -2,9 +2,9 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                <div class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary">Dash-Raport</h3>
-                </a>
+                </div>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                         <img class="rounded-circle mr-2" src="{{asset('assets/img/users.jpg')}}" alt="" style="width: 40px; height: 40px;">
