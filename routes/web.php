@@ -22,24 +22,27 @@ Route::get('/', [LoginController::class, 'Login'])->name('AuthLogin')->middlewar
 Route::post('/', [LoginController::class, 'AuthLogin'])->name('authenticated');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+
    // Page Dashboard
 Route::get('/pages/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard.index')->middleware('auth');
 
 
 //PAGE ADMIN USER
 
+Route::group(['middleware' => 'admin'],function(){
 //RECORD
-Route::get('/pages/dashboard/user', [UserController::class, 'index'])->name('user.index')->middleware('admin');
+Route::get('/pages/dashboard/user', [UserController::class, 'index'])->name('user.index');
 //DELETE
 Route::delete('/pages/dashboard/user/{user:id}', [UserController::class,'destroy'])->name('user.destroy');
 //CREATE
-Route::get('/pages/dashboard/user/create',[UserController::class, 'create'])->name('user.create')->middleware('admin');
+Route::get('/pages/dashboard/user/create',[UserController::class, 'create'])->name('user.create');
 //STORE
-Route::post('/pages/dashboard/user/create', [UserController::class, 'store'])->name('user.store')->middleware('admin');
+Route::post('/pages/dashboard/user/create', [UserController::class, 'store'])->name('user.store');
 //EDIT
-Route::get('/pages/dashboard/user/{user:id}/edit',[UserController::class,'edit'])->name('user.edit')->middleware('admin');
+Route::get('/pages/dashboard/user/{user:id}/edit',[UserController::class,'edit'])->name('user.edit');
 //UPDATE
-Route::put('/pages/dashboard/user/{user:id}',[UserController::class,'update'])->name('user.update')->middleware('admin');
+Route::put('/pages/dashboard/user/{user:id}',[UserController::class,'update'])->name('user.update');
+});
 
 
 //PAGE ADMIN KELAS

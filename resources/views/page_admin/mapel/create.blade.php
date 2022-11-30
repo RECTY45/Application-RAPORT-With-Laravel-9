@@ -16,21 +16,21 @@
                                 <div class="col-md-12">
                                     <span>
                                         <p class="font-weight-bold" style="line-height: 10px" >Data Guru</p>
-                                        <p class="h2">Edit Data Guru</p>
+                                        <p class="h2">Tambah Data Guru</p>
                                     </span>
                                 </div>
                             </div>
                     </div>
 
+
                     <div class="card-body">
-                        <form action="{{ @route('guru.update', $items->id) }}" method="POST">
+                        <form action="" method="POST">
                             @csrf
-                            @method('PUT')
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Nama Guru</label>
-                                        <input  value='{{ $items->nama_guru }}' type="text" name="nama_guru" class="form-control @error('nama_guru')is-invalid @enderror">
+                                        <input type="text" name="nama_guru" class="form-control @error('nama_guru')is-invalid @enderror">
                                         @error('nama_guru')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -41,15 +41,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Mapel</label>
-                                        <select value='{{ $items->mapel->id }}' name="id_mapel" class="form-control @error('id_mapel')is-invalid @enderror">
-                                            @if ($items->mapel->nama_mapel)
-                                                <option selected value="{{ $items->mapel->id}}">{{ $items->mapel->nama_mapel }}</option>
-                                            @endif
+                                        <select name="id_mapel" class="form-control">
                                             <option value="">- Pilih Mapel -</option>
-                                            @foreach ($mapel as $mapel)
-                                                <option value="{{ $mapel->id }}">{{ $mapel->nama_mapel }}</option>
-                                            @endforeach
-                                        </select>
                                         @error('id_mapel')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
