@@ -13,7 +13,11 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        //
+        $items = Siswa::all();
+        return view('page_admin.siswa.index',[
+            'name' => 'Siswa',
+            'items' => $items
+        ]);
     }
 
     /**

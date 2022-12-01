@@ -53,7 +53,7 @@
                             @if ($item->role)
                                 <option selected value="{{ $item->role }}">{{ $item->role }}</option>
                             @endif
-                            <option value="">- Pilih Role -</option>
+                            <option value="">-- Pilih Role --</option>
                             <option value="Admin">Admin</option>
                             <option value="Guru">Guru</option>
                             <option value="Walas">Wali Kelas</option>

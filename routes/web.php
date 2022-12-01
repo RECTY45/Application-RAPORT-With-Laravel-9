@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\WalasController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,45 +32,82 @@ Route::get('/pages/dashboard', [DashboardController::class, 'dashboard'])->name(
 //PAGE ADMIN USER
 
 Route::group(['middleware' => 'admin'],function(){
-//RECORD
-Route::get('/pages/dashboard/user', [UserController::class, 'index'])->name('user.index');
-//DELETE
-Route::delete('/pages/dashboard/user/{user:id}', [UserController::class,'destroy'])->name('user.destroy');
-//CREATE
-Route::get('/pages/dashboard/user/create',[UserController::class, 'create'])->name('user.create');
-//STORE
-Route::post('/pages/dashboard/user/create', [UserController::class, 'store'])->name('user.store');
-//EDIT
-Route::get('/pages/dashboard/user/{user:id}/edit',[UserController::class,'edit'])->name('user.edit');
-//UPDATE
-Route::put('/pages/dashboard/user/{user:id}',[UserController::class,'update'])->name('user.update');
+    //RECORD
+    Route::get('/pages/dashboard/user', [UserController::class, 'index'])->name('user.index');
+    //DELETE
+    Route::delete('/pages/dashboard/user/{user:id}', [UserController::class,'destroy'])->name('user.destroy');
+    //CREATE
+    Route::get('/pages/dashboard/user/create',[UserController::class, 'create'])->name('user.create');
+    //STORE
+    Route::post('/pages/dashboard/user/create', [UserController::class, 'store'])->name('user.store');
+    //EDIT
+    Route::get('/pages/dashboard/user/{user:id}/edit',[UserController::class,'edit'])->name('user.edit');
+    //UPDATE
+    Route::put('/pages/dashboard/user/{user:id}',[UserController::class,'update'])->name('user.update');
 });
-
 
 //PAGE ADMIN KELAS
 
+Route::group(['middleware' => 'kelas'], function(){
+    //RECORD KELAS
+    Route::get('/pages/dashboard/kelas', [KelasController::class, 'index'])->name('kelas.index');
+    //DELETE
+    Route::delete('/pages/dashboard/kelas/{kelas:id}', [KelasController::class,'destroy'])->name('kelas.destroy');
+    //CREATE
+    Route::get('/pages/dashboard/kelas/create',[KelasController::class, 'create'])->name('kelas.create');
+    //STORE
+    Route::post('/pages/dashboard/kelas/create', [KelasController::class, 'store'])->name('kelas.store');
+    //EDIT
+    Route::get('/page/dashboard/kelas/{kelas:id}/edit',[KelasController::class,'edit'])->name('kelas.edit');
+    //UPDATE
+    Route::put('/pages/dashboard/kelas/update/{kelas:id}',[KelasController::class,'update'])->name('kelas.update');
+});
+
 //RECORD KELAS
-Route::get('/pages/dashboard/kelas', [KelasController::class, 'index'])->name('kelas.index')->middleware('admin');
-//DELETE
-Route::delete('/pages/dashboard/kelas/{user:id}', [KelasController::class,'destroy'])->name('kelas.destroy');
-//CREATE
-Route::get('/pages/dashboard/kelas/create',[KelasController::class, 'create'])->name('kelas.create');
-//STORE
-Route::post('/pages/dashboard/kelas/create', [KelasController::class, 'store'])->name('kelas.store');
-//EDIT
-Route::get('/page/dashboard/kelas/{kelas:id}/edit',[KelasController::class,'edit'])->name('kelas.edit');
-//UPDATE
-Route::put('/pages/dashboard/kelas/update/{kelas:id}',[KelasController::class,'update'])->name('kelas.update');
+
+Route::group(['middleware' => 'siswa'], function(){
+    Route::get('/pages/dashboard/siswa', [KelasController::class, 'index'])->name('siswa.index');
+    //DELETE
+    Route::delete('/pages/dashboard/siswa/{siswa:id}', [SiswaController::class,'destroy'])->name('siswa.destroy');
+    //CREATE
+    Route::get('/pages/dashboard/siswa/create',[SiswaController::class, 'create'])->name('siswa.create');
+    //STORE
+    Route::post('/pages/dashboard/siswa/create', [SiswaController::class, 'store'])->name('siswa.store');
+    //EDIT
+    Route::get('/page/dashboard/siswa/{siswa:id}/edit',[SiswaController::class,'edit'])->name('siswa.edit');
+    //UPDATE
+    Route::put('/pages/dashboard/siswa/update/{siswa:id}',[SiswaController::class,'update'])->name('siswa.update');
+});
 
 //RECORD GURU
-Route::get('/pages/dashboard/guru', [GuruController::class, 'index'])->name('guru.index')->middleware('admin');
-//DELETE
-Route::delete('/pages/dashboard/guru/{guru:id}', [GuruController::class,'destroy'])->name('guru.destroy');
-//CREATE
-Route::get('/pages/dashboard/guru/create',[GuruController::class, 'create'])->name('guru.create');
-//STORE
-Route::post('/pages/dashboard/guru/create', [GuruController::class, 'store'])->name('guru.store');
-//EDIT
-Route::get('/page/dashboard/guru/{guru:id}/edit',[GuruController::class,'edit'])->name('guru.edit');
-//UPDATE
-Route::put('/pages/dashboard/guru/update/{guru:id}',[GuruController::class,'update'])->name('guru.update');
+
+Route::group(['middleware' => 'guru'], function(){
+    Route::get('/pages/dashboard/guru', [GuruController::class, 'index'])->name('guru.index');
+    //DELETE
+    Route::delete('/pages/dashboard/guru/{guru:id}', [GuruController::class,'destroy'])->name('guru.destroy');
+    //CREATE
+    Route::get('/pages/dashboard/guru/create',[GuruController::class, 'create'])->name('guru.create');
+    //STORE
+    Route::post('/pages/dashboard/guru/create', [GuruController::class, 'store'])->name('guru.store');
+    //EDIT
+    Route::get('/page/dashboard/guru/{guru:id}/edit',[GuruController::class,'edit'])->name('guru.edit');
+    //UPDATE
+    Route::put('/pages/dashboard/guru/update/{guru:id}',[GuruController::class,'update'])->name('guru.update');
+});
+
+Route::group(['middleware' => 'walas'], function(){
+    Route::get('/pages/dashboard/walas', [WalasController::class, 'index'])->name('walas.index');
+    //DELETE
+    Route::delete('/pages/dashboard/walas/{walas:id}', [WalasController::class,'destroy'])->name('walas.destroy');
+    //CREATE
+    Route::get('/pages/dashboard/walas/create',[WalasController::class, 'create'])->name('walas.create');
+    //STORE
+    Route::post('/pages/dashboard/walas/create', [WalasController::class, 'store'])->name('walas.store');
+    //EDIT
+    Route::get('/page/dashboard/walas/{walas:id}/edit',[WalasController::class,'edit'])->name('walas.edit');
+    //UPDATE
+    Route::put('/pages/dashboard/walas/update/{walas:id}',[WalasController::class,'update'])->name('walas.update');
+});
+
+
+

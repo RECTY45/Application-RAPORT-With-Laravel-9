@@ -29,26 +29,51 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Nama Pengguna</label>
-                        <input type="text" name="nama_pengguna" class="form-control">
+                        <input type="text" name="nama_pengguna" class="form-control @error('nama_pengguna')is-invalid @enderror">
+                        @error('nama_pengguna')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+
                     </div>
                     <div class="form-group">
                         <label>Username</label>
-                        <input type="text" name="username" class="form-control">
+                        <input type="text" name="username" class="form-control @error('username')is-invalid @enderror">
+
+                        @error('username')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="text" name="password" class="form-control">
+                        <input type="text" name="password" class="form-control @error('password')is-invalid @enderror">
+
+                        @error('password')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     </div>
                     <div class="form-group">
                         <label>Role</label>
-                        <select name="role" class="form-control">
+                        <select name="role" class="form-control @error('role')is-invalid  @enderror">
+                            <option value="">-- Pilih Role --</option>
                             <option value="Admin">Admin</option>
                             <option value="Guru">Guru</option>
                             <option value="Walas">Wali Kelas</option>
                             <option value="Siswa">Siswa</option>
                         </select>
+                        @error('role')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     </div>
                 </div>
                 <div class="form-group px-3">

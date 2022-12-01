@@ -7,6 +7,9 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Guru;
 use App\Models\Mapel;
+use App\Models\Siswa;
+use App\Models\Jurusan;
+use App\Models\Kelas;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -121,6 +124,35 @@ class DatabaseSeeder extends Seeder
                 ],
                 ];
 
+
+
+            $siswas = [
+                [
+                    'nis' => '202-048',
+                    'nama' => 'Fery Fadul Rahman',
+                    'profile' => 'XI',
+                    'id_kelas' => 1,
+                    'id_jurusan' => 1,
+                    'jk' => 'L',
+                    'agama' => 'Islam',
+                    'nisn' => 1111111111,
+                ],
+                ];
+
+                $kelas = [
+                    [
+                        'nama_kelas' => 'RPL2',
+                        'level' => 'XII',
+                    ],
+                ];
+
+                $jurusans = [
+                    [
+                        'kode_jurusan' => 'RPL',
+                        'nama_jurusan' => 'Rekayasa Perangkat Lunak',
+                    ],
+                ];
+
                 foreach($users as $user){
                     User::create($user);
                 }
@@ -131,6 +163,15 @@ class DatabaseSeeder extends Seeder
 
                 foreach($gurus as $guru){
                     Guru::create($guru);
+                }
+                foreach($siswas as $siswa){
+                    Siswa::create($siswa);
+                }
+                foreach($kelas as $kelas){
+                    Kelas::create($kelas);
+                }
+                foreach($jurusans as $jurusan){
+                    Jurusan::create($jurusan);
                 }
     }
 }

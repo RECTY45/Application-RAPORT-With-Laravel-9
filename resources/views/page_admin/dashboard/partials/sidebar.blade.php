@@ -57,8 +57,8 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Siswa</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="#" class="dropdown-item">View</a>
-                            <a href="#" class="dropdown-item">Add</a>
+                            <a href="{{@route('siswa.index')}}" class="dropdown-item">View</a>
+                            <a href="{{@route('siswa.create')}}" class="dropdown-item">Add</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
