@@ -44,11 +44,7 @@ Route::group(['middleware' => 'admin'],function(){
     Route::get('/pages/dashboard/user/{user:id}/edit',[UserController::class,'edit'])->name('user.edit');
     //UPDATE
     Route::put('/pages/dashboard/user/{user:id}',[UserController::class,'update'])->name('user.update');
-});
 
-//PAGE ADMIN KELAS
-
-Route::group(['middleware' => 'kelas'], function(){
     //RECORD KELAS
     Route::get('/pages/dashboard/kelas', [KelasController::class, 'index'])->name('kelas.index');
     //DELETE
@@ -61,11 +57,7 @@ Route::group(['middleware' => 'kelas'], function(){
     Route::get('/page/dashboard/kelas/{kelas:id}/edit',[KelasController::class,'edit'])->name('kelas.edit');
     //UPDATE
     Route::put('/pages/dashboard/kelas/update/{kelas:id}',[KelasController::class,'update'])->name('kelas.update');
-});
 
-//RECORD KELAS
-
-Route::group(['middleware' => 'siswa'], function(){
     Route::get('/pages/dashboard/siswa', [KelasController::class, 'index'])->name('siswa.index');
     //DELETE
     Route::delete('/pages/dashboard/siswa/{siswa:id}', [SiswaController::class,'destroy'])->name('siswa.destroy');
@@ -77,11 +69,7 @@ Route::group(['middleware' => 'siswa'], function(){
     Route::get('/page/dashboard/siswa/{siswa:id}/edit',[SiswaController::class,'edit'])->name('siswa.edit');
     //UPDATE
     Route::put('/pages/dashboard/siswa/update/{siswa:id}',[SiswaController::class,'update'])->name('siswa.update');
-});
 
-//RECORD GURU
-
-Route::group(['middleware' => 'guru'], function(){
     Route::get('/pages/dashboard/guru', [GuruController::class, 'index'])->name('guru.index');
     //DELETE
     Route::delete('/pages/dashboard/guru/{guru:id}', [GuruController::class,'destroy'])->name('guru.destroy');
@@ -93,9 +81,7 @@ Route::group(['middleware' => 'guru'], function(){
     Route::get('/page/dashboard/guru/{guru:id}/edit',[GuruController::class,'edit'])->name('guru.edit');
     //UPDATE
     Route::put('/pages/dashboard/guru/update/{guru:id}',[GuruController::class,'update'])->name('guru.update');
-});
 
-Route::group(['middleware' => 'walas'], function(){
     Route::get('/pages/dashboard/walas', [WalasController::class, 'index'])->name('walas.index');
     //DELETE
     Route::delete('/pages/dashboard/walas/{walas:id}', [WalasController::class,'destroy'])->name('walas.destroy');
@@ -107,6 +93,29 @@ Route::group(['middleware' => 'walas'], function(){
     Route::get('/page/dashboard/walas/{walas:id}/edit',[WalasController::class,'edit'])->name('walas.edit');
     //UPDATE
     Route::put('/pages/dashboard/walas/update/{walas:id}',[WalasController::class,'update'])->name('walas.update');
+
+});
+
+//PAGE ADMIN KELAS
+
+Route::group(['middleware' => 'kelas'], function(){
+
+});
+
+//RECORD KELAS
+
+Route::group(['middleware' => 'siswa'], function(){
+
+});
+
+//RECORD GURU
+
+Route::group(['middleware' => 'guru'], function(){
+
+});
+
+Route::group(['middleware' => 'walas'], function(){
+
 });
 
 
