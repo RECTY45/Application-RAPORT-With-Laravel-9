@@ -45,6 +45,8 @@ Route::group(['middleware' => 'admin'],function(){
     //UPDATE
     Route::put('/pages/dashboard/user/{user:id}',[UserController::class,'update'])->name('user.update');
 
+    // PAGE KELAS
+
     //RECORD KELAS
     Route::get('/pages/dashboard/kelas', [KelasController::class, 'index'])->name('kelas.index');
     //DELETE
@@ -58,7 +60,9 @@ Route::group(['middleware' => 'admin'],function(){
     //UPDATE
     Route::put('/pages/dashboard/kelas/update/{kelas:id}',[KelasController::class,'update'])->name('kelas.update');
 
-    Route::get('/pages/dashboard/siswa', [KelasController::class, 'index'])->name('siswa.index');
+    // PAGE SISWA
+
+    Route::get('/pages/dashboard/siswa', [SiswaController::class, 'index'])->name('siswa.index');
     //DELETE
     Route::delete('/pages/dashboard/siswa/{siswa:id}', [SiswaController::class,'destroy'])->name('siswa.destroy');
     //CREATE
@@ -69,6 +73,8 @@ Route::group(['middleware' => 'admin'],function(){
     Route::get('/page/dashboard/siswa/{siswa:id}/edit',[SiswaController::class,'edit'])->name('siswa.edit');
     //UPDATE
     Route::put('/pages/dashboard/siswa/update/{siswa:id}',[SiswaController::class,'update'])->name('siswa.update');
+
+    //Page Guru
 
     Route::get('/pages/dashboard/guru', [GuruController::class, 'index'])->name('guru.index');
     //DELETE

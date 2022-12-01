@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Siswa;
+use App\Models\Kelas;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class SiswaController extends Controller
 {
@@ -27,7 +30,13 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        //
+        $jurusans = Jurusan::all();
+        $kelas = Kelas::all();
+        return view('page_admin.siswa.create',[
+            'name' => 'Tambah',
+            'jurusans' => $jurusans,
+            'kelas' => $kelas
+        ]);
     }
 
     /**
@@ -38,7 +47,29 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $idKelas = Kelas::pluck('id')->toArray();
+        $idJurusan = Jurusan::pluck('id')->toArray();
+        $validateData = $request->validate([
+            'nis' => ['required', 'unique:tbl_siswas,nis'],
+            'nisn' => ['required', 'unique:tbl_siswas,nisn'],
+            'nama' => ['required'],
+            'id_kelas' => ['required', Rule::in($idKelas)],
+            'id_jurusan' => ['required', Rule::in($idJurusan)],
+            'jk' => ['required'],
+            'agama' => ['required'],
+            'profile' => ['nullable'],
+        ]);
+
+        if($validateData){
+            $check = Siswa::create($validateData);
+        }
+
+        if($check){
+            return redirect(route('siswa.index'))->with('success', 'Data berhasil di tambahkan');
+        }
+
+        return back()->with('error','Data gagal ditambahkan');
+
     }
 
     /**
@@ -58,9 +89,17 @@ class SiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Siswa $siswa)
     {
-        //
+
+            $jurusans = Jurusan::all();
+            $Kelas = Kelas::all();
+        return view('page_admin.siswa.edit',[
+            'name' => 'Tambah',
+            'item' => $siswa,
+            'jurusans' => $jurusans,
+            'kelas' => $Kelas
+        ]);
     }
 
     /**
@@ -70,9 +109,30 @@ class SiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Siswa $siswa)
     {
-        //
+        $idKelas = Kelas::pluck('id')->toArray();
+        $idJurusan = Jurusan::pluck('id')->toArray();
+        $validateData = $request->validate([
+            'nis' => ['required', 'unique:tbl_siswas,nis'],
+            'nisn' => ['required', 'unique:tbl_siswas,nisn'],
+            'nama' => ['required'],
+            'id_kelas' => ['required', Rule::in($idKelas)],
+            'id_jurusan' => ['required', Rule::in($idJurusan)],
+            'jk' => ['required'],
+            'agama' => ['required'],
+            'profile' => ['nullable'],
+        ]);
+
+        if($validateData){
+            $check = $siswa->update($validateData);
+        }
+
+        if($check){
+            return redirect(route('siswa.index'))->with('success', 'Data berhasil di edit');
+        }
+
+        return back()->with('error','Data gagal di edit');
     }
 
     /**
@@ -83,6 +143,10 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $siswa = Siswa::findOrFail($id);
+
+        $siswa->delete();
+
+        return redirect()->route('siswa.index')->with('success', 'Data berhasil dihapus');
     }
 }

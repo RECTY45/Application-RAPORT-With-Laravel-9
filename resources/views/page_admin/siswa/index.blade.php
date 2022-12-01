@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end">
-                <a href="{{ @route('user.create') }}" class="btn btn-primary">Tambah</a>
+                <a href="{{ @route('siswa.create') }}" class="btn btn-primary">Tambah</a>
             </div>
         </div>
         <div class="card-body">
@@ -56,7 +56,9 @@
                             <td>{{ $item->nisn }}</td>
                             <td>{{ $item->nama }}</td>
                             <td>{{ $item->kelas->level }}</td>
-                            <td>{{ $item->jurusan->kode_jurusan }}</td>
+                            <td>{{ $item->jurusan->nama_jurusan }}</td>
+                            <td>{{ $item->jk }}</td>
+                            <td>{{ $item->agama }}</td>
                             <td>
                                 <div class="form-control-icon d-flex">
                                     <a href="{{ @route('siswa.edit', $item->id) }}"

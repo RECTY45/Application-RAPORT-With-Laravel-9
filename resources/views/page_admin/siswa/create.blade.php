@@ -14,8 +14,8 @@
         <div class="row mb-2">
             <div class="col-md-12">
                 <span>
-                    <p class="font-weight-bold" style="line-height: 10px">Data Manajemen User</p>
-                    <p class="h2">Tambah Data Manajemen User</p>
+                    <p class="font-weight-bold" style="line-height: 10px">Data Siswa</p>
+                    <p class="h2">Tambah Data Siswa</p>
                 </span>
             </div>
         </div>
@@ -23,63 +23,125 @@
 
 
     <div class="card-body">
-        <form action="{{ @route('siswa.store') }}" method="POST">
+        <form action="{{ @route('siswa.store') }}" method="POST" class="form form-vertical">
             @csrf
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Nama Pengguna</label>
-                        <input type="text" name="nama_pengguna" class="form-control @error('nama_pengguna')is-invalid @enderror">
-                        @error('nama_pengguna')
-                        <div class="invalid-feedback">
-                            {{ $message }}
+            <div class="form-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="nis">NIS</label>
+                            <input type="text" id="nis"
+                                value="{{ old('nis') }}"
+                                class="form-control @error('nis')is-invalid @enderror" name="nis"
+                                placeholder="Masukkan NIS">
+                            @error('nis')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
-                    @enderror
-
                     </div>
-                    <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" name="username" class="form-control @error('username')is-invalid @enderror">
-
-                        @error('username')
-                        <div class="invalid-feedback">
-                            {{ $message }}
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="nisn">NISN</label>
+                            <input type="text" id="nisn"
+                                value="{{ old('nisn') }}"
+                                class="form-control @error('nisn')is-invalid @enderror" name="nisn"
+                                placeholder="Masukkan NISN">
+                            @error('nisn')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
-                    @enderror
-
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="text" name="password" class="form-control @error('password')is-invalid @enderror">
-
-                        @error('password')
-                        <div class="invalid-feedback">
-                            {{ $message }}
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input type="nama" id="nama"
+                                value="{{ old('nama') }}"
+                                class="form-control @error('nama')is-invalid @enderror" name="nama"
+                                placeholder="Masukkan Nama">
+                            @error('nama')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
-                    @enderror
                     </div>
-                    <div class="form-group">
-                        <label>Role</label>
-                        <select name="role" class="form-control @error('role')is-invalid  @enderror">
-                            <option value="">-- Pilih Role --</option>
-                            <option value="Admin">Admin</option>
-                            <option value="Guru">Guru</option>
-                            <option value="Walas">Wali Kelas</option>
-                            <option value="Siswa">Siswa</option>
-                        </select>
-                        @error('role')
-                        <div class="invalid-feedback">
-                            {{ $message }}
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="jk">Jenis Kelamin</label>
+                            <select name="jk" id="jk" class="form-select @error('jk')is-invalid @enderror">
+                                <option value="">- Pilih Jenis Kelamin -</option>
+                                <option value="L" {{ old('jk') == 'L' ? 'selected' : '' }}>Laki-Laki</option>
+                                <option value="P" {{ old('jk') == 'P' ? 'selected' : '' }}>Perempuan</option>
+                            </select>
+                            @error('jk')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
-                    @enderror
                     </div>
-                </div>
-                <div class="form-group px-3">
-                    <button type="submit" class="btn btn-sm btn-primary">Rekam</button>
-
-                    <a href="{{ @route('siswa.index') }}" type="button" class="btn btn-sm btn-success">Batal</a>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="agama">Agama</label>
+                            <input type="agama" id="agama"
+                                value="{{ old('agama') }}"
+                                class="form-control @error('agama')is-invalid @enderror" name="agama"
+                                placeholder="Masukkan Agama">
+                            @error('agama')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="jurusan_id">Jurusan</label>
+                            <select name="id_jurusan" id="jurusan_id" class="form-select @error('jurusan_id')is-invalid @enderror">
+                                <option value="">- Pilih Jurusan -</option>
+                                @foreach ($jurusans as $jurusan)
+                                    @if (old('jurusan_id') == $jurusan->id)
+                                    <option value="{{ $jurusan->id }}" selected>{{ $jurusan->kode_jurusan }}</option>
+                                    @endif
+                                    <option value="{{ $jurusan->id }}">{{ $jurusan->kode_jurusan }}</option>
+                                @endforeach
+                            </select>
+                            @error('jurusan_id')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="kelas_id">Kelas</label>
+                            <select name="id_kelas" id="kelas_id" class="form-select @error('kelas_id')is-invalid @enderror">
+                                <option value="">- Pilih Kelas -</option>
+                                @foreach ($kelas as $kelas)
+                                    @if (old('kelas_id') == $kelas->id)
+                                    <option value="{{ $kelas->id }}" selected>{{ $kelas->nama_kelas }}</option>
+                                    @endif
+                                    <option value="{{ $kelas->id }}">{{ $kelas->nama_kelas }}</option>
+                                @endforeach
+                            </select>
+                            @error('kelas_id')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-end">
+                        <button type="submit"
+                            class="btn btn-primary me-1 mb-1">Submit</button>
+                        <a href="{{ route('siswa.index') }}"
+                            class="btn btn-light-secondary me-1 mb-1">Back</a>
+                    </div>
                 </div>
             </div>
         </form>
