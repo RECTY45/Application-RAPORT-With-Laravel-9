@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\tbl_kelas;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
@@ -14,7 +14,11 @@ class KelasController extends Controller
      */
     public function index()
     {
-        //
+        $items =  Kelas::all();
+        return view('page_admin.kelas.index',[
+            'name' => 'KELAS',
+            'items' => $items,
+         ]);
     }
 
     /**
@@ -24,7 +28,9 @@ class KelasController extends Controller
      */
     public function create()
     {
-        //
+        return view('page_admin.kelas.create',[
+            'name' => 'TAMBAH',
+        ]);
     }
 
     /**
@@ -33,18 +39,30 @@ class KelasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Kelas  $kelas)
     {
-        //
+            $validateData = $request->validate([
+                'nama_kelas' => ['required'],
+                'id_kelas' => ['required']
+            ]);
+
+            if($validateData){
+                    $check = Kelas::create($validateData);
+            }
+
+            if($check){
+                return redirect(route('kelas.index'))->with('success', 'Data berhasil di tambahkan');
+            }
+            return back()->with('error','Data gagal ditambahkan');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\tbl_kelas  $tbl_kelas
+     * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function show(tbl_kelas $tbl_kelas)
+    public function show(Kelas $kelas)
     {
         //
     }
@@ -52,34 +70,52 @@ class KelasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\tbl_kelas  $tbl_kelas
+     * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function edit(tbl_kelas $tbl_kelas)
+    public function edit(Kelas $kelas)
     {
-        //
+        return view('page_admin.kelas.edit',[
+            'name' => 'EDIT',
+             'item' => $kelas
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\tbl_kelas  $tbl_kelas
+     * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tbl_kelas $tbl_kelas)
+    public function update(Request $request, Kelas $kelas)
     {
-        //
+        $validateData = $request->validate([
+            'nama_kelas' => ['required'],
+            'id_kelas' => ['required']
+        ]);
+
+            $check = $kelas->update($validateData);
+
+        if($check){
+            return redirect(route('siswa.index'))->with('success', 'Data berhasil di update');
+        }
+
+        return back()->with('error','Data gagal di update');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\tbl_kelas  $tbl_kelas
+     * @param  \App\Models\Kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tbl_kelas $tbl_kelas)
+    public function destroy(Kelas $kelas)
     {
-        //
+        $check = $kelas->delete();
+        if($check){
+             return redirect()->back()->with('success', 'Data berhasil di hapus');
+        }
+             return redirect()->back()->with('error', 'Dataa gagal di tambahkan');
     }
 }

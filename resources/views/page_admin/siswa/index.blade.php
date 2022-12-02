@@ -51,14 +51,14 @@
                 <tbody>
                     @forelse ($items as $item)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->nis }}</td>
-                            <td>{{ $item->nisn }}</td>
-                            <td>{{ $item->nama }}</td>
-                            <td>{{ $item->kelas->level }}</td>
-                            <td>{{ $item->jurusan->nama_jurusan }}</td>
-                            <td>{{ $item->jk }}</td>
-                            <td>{{ $item->agama }}</td>
+                            <td>{{ $loop->iteration ?? '-' }}</td>
+                            <td>{{ $item->nis ?? '-' }}</td>
+                            <td>{{ $item->nisn ?? '-' }}</td>
+                            <td>{{ $item->nama ?? '-' }}</td>
+                            <td>{{ $item->kelas->level  ?? '-' }}</td>
+                            <td>{{ $item->jurusan->nama_jurusan ?? '-' }}</td>
+                            <td>{{ $item->jk ?? '-' }}</td>
+                            <td>{{ $item->agama ?? '-' }}</td>
                             <td>
                                 <div class="form-control-icon d-flex">
                                     <a href="{{ @route('siswa.edit', $item->id) }}"

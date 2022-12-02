@@ -73,9 +73,9 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="jk">Jenis Kelamin</label>
-                            <select view="{{ $item->jk }}"  name="jk" id="jk" class="form-select @error('jk')is-invalid @enderror">
-                                @if ($item->jk)
-                                <option value="{{ $item->id }}" {{ old('jk') == 'L' ? 'selected' : '' }}>Laki-Laki</option>
+                            <select view="{{ $item->jk }}"  name="jk" id="jk" class="form-control @error('jk')is-invalid @enderror">
+                            @if ($item->jk)
+                                <option selected value="{{ $item->jk }}">{{ $item->jk === "L" ? "Laki-Laki" : "Perempuan"}}</option>
                             @endif
                                 <option value="">- Pilih Jenis Kelamin -</option>
                                 <option value="L" {{ old('jk') == 'L' ? 'selected' : '' }}>Laki-Laki</option>
@@ -105,16 +105,16 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="jurusan_id">Jurusan</label>
-                            <select name="id_jurusan" view="{{ $item->jurusan->kode_jurusan }}" id="jurusan_id" class="form-select @error('jurusan_id')is-invalid @enderror">
+                            <select name="id_jurusan" view="{{ $item->jurusan->kode_jurusan }}" id="jurusan_id" class="form-control @error('jurusan_id')is-invalid @enderror">
                                 @if ($item->jurusan->kode_jurusan)
                                                 <option selected value="{{ $item->jurusan->id}}">{{ $item->jurusan->nama_jurusan }}</option>
                                             @endif
                                 <option value="">- Pilih Jurusan -</option>
                                 @foreach ($jurusans as $jurusan)
                                     @if (old('jurusan_id') == $jurusan->id)
-                                    <option value="{{ $jurusan->id }}" selected>{{ $jurusan->kode_jurusan }}</option>
+                                    <option value="{{ $jurusan->id }}" selected>{{ $jurusan->nama_jurusan }}</option>
                                     @endif
-                                    <option value="{{ $jurusan->id }}">{{ $jurusan->kode_jurusan }}</option>
+                                    <option value="{{ $jurusan->id }}">{{ $jurusan->nama_jurusan }}</option>
                                 @endforeach
                             </select>
                             @error('jurusan_id')
@@ -127,16 +127,13 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="kelas_id">Kelas</label>
-                            <select value="{{ $item->kelas->nama_kelas }}" name="id_kelas" id="kelas_id" class="form-select @error('kelas_id')is-invalid @enderror">
-                                @if ($item->kelas->nama_kelas)
-                                <option value="{{ $item->id }}">{{ $item->kelas->nama_kelas }}</option>
-                            @endif
+                            <select name="id_kelas" id="kelas_id" class="form-control @error('kelas_id')is-invalid @enderror">
                                 <option value="">- Pilih Kelas -</option>
                                 @foreach ($kelas as $kelas)
                                     @if (old('kelas_id') == $kelas->id)
-                                    <option value="{{ $kelas->id }}" selected>{{ $kelas->nama_kelas }}</option>
+                                    <option value="{{ $kelas->id }}" selected>{{ $kelas->level }}</option>
                                     @endif
-                                    <option value="{{ $kelas->id }}">{{ $kelas->nama_kelas }}</option>
+                                    <option value="{{ $kelas->id }}">{{ $kelas->level }}</option>
                                 @endforeach
                             </select>
                             @error('kelas_id')

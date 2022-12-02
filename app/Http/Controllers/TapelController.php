@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tapel;
 use Illuminate\Http\Request;
 
 class TapelController extends Controller
@@ -40,10 +41,10 @@ class TapelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Tapel  $tapel
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Tapel $tapel)
     {
         //
     }
@@ -51,10 +52,10 @@ class TapelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Tapel  $tapel
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tapel $tapel)
     {
         //
     }
@@ -63,10 +64,10 @@ class TapelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Tapel  $tapel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tapel $tapel)
     {
         //
     }
@@ -74,10 +75,10 @@ class TapelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Tapel  $tapel
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tapel $tapel)
     {
         //
     }

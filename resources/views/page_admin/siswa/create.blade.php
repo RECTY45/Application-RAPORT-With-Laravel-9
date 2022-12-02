@@ -72,7 +72,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="jk">Jenis Kelamin</label>
-                            <select name="jk" id="jk" class="form-select @error('jk')is-invalid @enderror">
+                            <select name="jk" id="jk" class="form-control @error('jk')is-invalid @enderror">
                                 <option value="">- Pilih Jenis Kelamin -</option>
                                 <option value="L" {{ old('jk') == 'L' ? 'selected' : '' }}>Laki-Laki</option>
                                 <option value="P" {{ old('jk') == 'P' ? 'selected' : '' }}>Perempuan</option>
@@ -101,7 +101,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="jurusan_id">Jurusan</label>
-                            <select name="id_jurusan" id="jurusan_id" class="form-select @error('jurusan_id')is-invalid @enderror">
+                            <select name="id_jurusan" id="jurusan_id" class="form-control @error('jurusan_id')is-invalid @enderror">
                                 <option value="">- Pilih Jurusan -</option>
                                 @foreach ($jurusans as $jurusan)
                                     @if (old('jurusan_id') == $jurusan->id)
@@ -120,13 +120,13 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="kelas_id">Kelas</label>
-                            <select name="id_kelas" id="kelas_id" class="form-select @error('kelas_id')is-invalid @enderror">
+                            <select name="id_kelas" id="kelas_id" class="form-control @error('kelas_id')is-invalid @enderror">
                                 <option value="">- Pilih Kelas -</option>
                                 @foreach ($kelas as $kelas)
                                     @if (old('kelas_id') == $kelas->id)
-                                    <option value="{{ $kelas->id }}" selected>{{ $kelas->nama_kelas }}</option>
+                                    <option value="{{ $kelas->id }}" selected>{{ $kelas->level }}</option>
                                     @endif
-                                    <option value="{{ $kelas->id }}">{{ $kelas->nama_kelas }}</option>
+                                    <option value="{{ $kelas->id }}">{{ $kelas->level }}</option>
                                 @endforeach
                             </select>
                             @error('kelas_id')

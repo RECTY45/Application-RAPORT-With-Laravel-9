@@ -50,8 +50,8 @@ class SiswaController extends Controller
         $idKelas = Kelas::pluck('id')->toArray();
         $idJurusan = Jurusan::pluck('id')->toArray();
         $validateData = $request->validate([
-            'nis' => ['required', 'unique:tbl_siswas,nis'],
-            'nisn' => ['required', 'unique:tbl_siswas,nisn'],
+            'nis' => ['required', 'unique:tbl_siswas,nis', 'max:7'],
+            'nisn' => ['required', 'unique:tbl_siswas,nisn', 'max:10'],
             'nama' => ['required'],
             'id_kelas' => ['required', Rule::in($idKelas)],
             'id_jurusan' => ['required', Rule::in($idJurusan)],
@@ -114,8 +114,8 @@ class SiswaController extends Controller
         $idKelas = Kelas::pluck('id')->toArray();
         $idJurusan = Jurusan::pluck('id')->toArray();
         $validateData = $request->validate([
-            'nis' => ['required', 'unique:tbl_siswas,nis'],
-            'nisn' => ['required', 'unique:tbl_siswas,nisn'],
+            'nis' => ['required', 'unique:tbl_siswas,nis', 'max:7'],
+            'nisn' => ['required', 'unique:tbl_siswas,nisn', 'max:10'],
             'nama' => ['required'],
             'id_kelas' => ['required', Rule::in($idKelas)],
             'id_jurusan' => ['required', Rule::in($idJurusan)],
