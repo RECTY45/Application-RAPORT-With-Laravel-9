@@ -14,8 +14,8 @@
                 <div class="row mb-2">
                     <div class="col-md-12">
                         <span>
-                            <p class="font-weight-bold" style="line-height: 10px">Data Guru</p>
-                            <p class="h2">Kelola Data Guru</p>
+                            <p class="font-weight-bold" style="line-height: 10px">Data Mapel</p>
+                            <p class="h2">Kelola Data Mapel</p>
                         </span>
                     </div>
                 </div>
@@ -39,9 +39,9 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Guru</th>
-                        <th>Nama Mapel</th>
+                       <th>Nama Mapel</th>
                         <th>Nilai KKM</th>
+                        <th>Jurusan</th>
                         <th>Level</th>
                         <th>Action</th>
                     </tr>
@@ -50,10 +50,10 @@
                     @forelse ($items as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->nama_guru }}</td>
-                            <td>{{ $item->mapel->nama_mapel ?? '-' }}</td>
-                            <td>{{ $item->mapel->kkm ?? '-' }}</td>
-                            <td>{{ $item->mapel->level ?? '-' }}</td>
+                            <td>{{ $item->nama_mapel ?? '-' }}</td>
+                            <td>{{ $item->kkm ?? '-' }}</td>
+                            <td>{{ $item->jurusan->nama_jurusan ?? '-' }}</td>
+                            <td>{{ $item->level ?? '-' }}</td>
                             <td>
                                 <div class="form-control-icon d-flex">
                                     <a href="{{ @route('guru.edit', $item->id) }}" method="POST" class="bg-success px-2 py-1 rounded text-white mx-1"><i

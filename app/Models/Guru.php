@@ -16,6 +16,6 @@ class Guru extends Model
     }
 
     public function walas(){
-        return $this->hasMany(Walas::class);
+        return $this->hasMany(Walas::class, 'id_walas');
     }
 }

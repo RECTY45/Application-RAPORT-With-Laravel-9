@@ -12,7 +12,7 @@ class Kelas extends Model
     protected $table = 'tbl_kelas';
 
     public function siswa(){
-        return $this->hasMany(Siswa::class);
+        return $this->hasMany(Siswa::class,'id_mapel');
     }
 
     public function walas(){

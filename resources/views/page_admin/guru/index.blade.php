@@ -40,8 +40,6 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Guru</th>
-                        <th>Nama Mapel</th>
-                        <th>Nilai KKM</th>
                         <th>Level</th>
                         <th>Action</th>
                     </tr>
@@ -51,12 +49,11 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->nama_guru }}</td>
-                            <td>{{ $item->mapel->nama_mapel ?? '-' }}</td>
-                            <td>{{ $item->mapel->kkm ?? '-' }}</td>
                             <td>{{ $item->mapel->level ?? '-' }}</td>
                             <td>
                                 <div class="form-control-icon d-flex">
-                                    <a href="{{ @route('guru.edit', $item->id) }}" method="POST" class="bg-success px-2 py-1 rounded text-white mx-1"><i
+                                    <a href="{{ @route('guru.edit', $item->id) }}" method="POST"
+                                        class="bg-success px-2 py-1 rounded text-white mx-1"><i
                                             class="bi bi-pen-fill"></i></a>
                                     <form action="{{ @route('guru.destroy', $item->id) }}" method="POST">
                                         @method('delete')

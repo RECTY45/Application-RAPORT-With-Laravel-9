@@ -92,13 +92,16 @@ class KelasController extends Controller
     {
         $validateData = $request->validate([
             'nama_kelas' => ['required'],
-            'id_kelas' => ['required']
+            'level' => ['required']
         ]);
 
+        if($validateData){
             $check = $kelas->update($validateData);
+        }
+
 
         if($check){
-            return redirect(route('siswa.index'))->with('success', 'Data berhasil di update');
+            return redirect(route('kelas.index'))->with('success', 'Data berhasil di update');
         }
 
         return back()->with('error','Data gagal di update');

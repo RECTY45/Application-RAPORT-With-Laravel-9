@@ -57,7 +57,7 @@
                             <td>{{ $item->nama ?? '-' }}</td>
                             <td>{{ $item->kelas->level  ?? '-' }}</td>
                             <td>{{ $item->jurusan->nama_jurusan ?? '-' }}</td>
-                            <td>{{ $item->jk ?? '-' }}</td>
+                            <td>{{ $item->jk === "L" ? 'Laki-Laki': 'Perempuan' }}</td>
                             <td>{{ $item->agama ?? '-' }}</td>
                             <td>
                                 <div class="form-control-icon d-flex">

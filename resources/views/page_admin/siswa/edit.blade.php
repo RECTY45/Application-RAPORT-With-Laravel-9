@@ -31,8 +31,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="nis">NIS</label>
-                            <input type="text" id="nis"
-                                value="{{ $item->nis}}"
+                            <input type="text" id="nis" value="{{ $item->nis }}"
                                 class="form-control @error('nis')is-invalid @enderror" name="nis"
                                 placeholder="Masukkan NIS">
                             @error('nis')
@@ -45,8 +44,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="nisn">NISN</label>
-                            <input type="text" id="nisn"
-                                value="{{ $item->nisn }}"
+                            <input type="number" id="nisn" value="{{ $item->nisn }}"
                                 class="form-control @error('nisn')is-invalid @enderror" name="nisn"
                                 placeholder="Masukkan NISN">
                             @error('nisn')
@@ -59,8 +57,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="nama">Nama Siswa</label>
-                            <input type="nama" id="nama"
-                                value="{{ $item->nama }}"
+                            <input type="nama" id="nama" value="{{ $item->nama }}"
                                 class="form-control @error('nama')is-invalid @enderror" name="nama"
                                 placeholder="Masukkan Nama">
                             @error('nama')
@@ -73,10 +70,12 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="jk">Jenis Kelamin</label>
-                            <select view="{{ $item->jk }}"  name="jk" id="jk" class="form-control @error('jk')is-invalid @enderror">
-                            @if ($item->jk)
-                                <option selected value="{{ $item->jk }}">{{ $item->jk === "L" ? "Laki-Laki" : "Perempuan"}}</option>
-                            @endif
+                            <select view="{{ $item->jk }}" name="jk" id="jk"
+                                class="form-control @error('jk')is-invalid @enderror">
+                                @if ($item->jk)
+                                    <option selected value="{{ $item->jk }}">
+                                        {{ $item->jk === 'L' ? 'Laki-Laki' : 'Perempuan' }}</option>
+                                @endif
                                 <option value="">- Pilih Jenis Kelamin -</option>
                                 <option value="L" {{ old('jk') == 'L' ? 'selected' : '' }}>Laki-Laki</option>
                                 <option value="P" {{ old('jk') == 'P' ? 'selected' : '' }}>Perempuan</option>
@@ -91,8 +90,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="agama">Agama</label>
-                            <input type="agama" id="agama"
-                                value="{{ $item->agama }}"
+                            <input type="agama" id="agama" value="{{ $item->agama }}"
                                 class="form-control @error('agama')is-invalid @enderror" name="agama"
                                 placeholder="Masukkan Agama">
                             @error('agama')
@@ -105,14 +103,16 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="jurusan_id">Jurusan</label>
-                            <select name="id_jurusan" view="{{ $item->jurusan->kode_jurusan }}" id="jurusan_id" class="form-control @error('jurusan_id')is-invalid @enderror">
+                            <select name="id_jurusan" view="{{ $item->jurusan->kode_jurusan }}" id="jurusan_id"
+                                class="form-control @error('jurusan_id')is-invalid @enderror">
                                 @if ($item->jurusan->kode_jurusan)
-                                                <option selected value="{{ $item->jurusan->id}}">{{ $item->jurusan->nama_jurusan }}</option>
-                                            @endif
+                                    <option selected value="{{ $item->jurusan->id }}">{{ $item->jurusan->nama_jurusan }}
+                                    </option>
+                                @endif
                                 <option value="">- Pilih Jurusan -</option>
                                 @foreach ($jurusans as $jurusan)
                                     @if (old('jurusan_id') == $jurusan->id)
-                                    <option value="{{ $jurusan->id }}" selected>{{ $jurusan->nama_jurusan }}</option>
+                                        <option value="{{ $jurusan->id }}" selected>{{ $jurusan->nama_jurusan }}</option>
                                     @endif
                                     <option value="{{ $jurusan->id }}">{{ $jurusan->nama_jurusan }}</option>
                                 @endforeach
@@ -127,11 +127,12 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="kelas_id">Kelas</label>
-                            <select name="id_kelas" id="kelas_id" class="form-control @error('kelas_id')is-invalid @enderror">
+                            <select name="id_kelas" id="kelas_id"
+                                class="form-control @error('kelas_id')is-invalid @enderror">
                                 <option value="">- Pilih Kelas -</option>
                                 @foreach ($kelas as $kelas)
                                     @if (old('kelas_id') == $kelas->id)
-                                    <option value="{{ $kelas->id }}" selected>{{ $kelas->level }}</option>
+                                        <option value="{{ $kelas->id }}" selected>{{ $kelas->level }}</option>
                                     @endif
                                     <option value="{{ $kelas->id }}">{{ $kelas->level }}</option>
                                 @endforeach
@@ -144,10 +145,8 @@
                         </div>
                     </div>
                     <div class="col-12 d-flex justify-content-end">
-                        <button type="submit"
-                            class="btn btn-primary me-1 mb-1">Submit</button>
-                        <a href="{{ route('siswa.index') }}"
-                            class="btn btn-light-secondary me-1 mb-1">Back</a>
+                        <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                        <a href="{{ route('siswa.index') }}" class="btn btn-light-secondary me-1 mb-1">Back</a>
                     </div>
                 </div>
             </div>

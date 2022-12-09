@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mapel;
+use App\Models\Guru;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
 class MapelController extends Controller
@@ -14,7 +16,11 @@ class MapelController extends Controller
      */
     public function index()
     {
-        //
+        $items = Mapel::all();
+        return view('page_admin.mapel.index',[
+            'name' => 'MAPEL',
+            'items' => $items,
+        ]);
     }
 
     /**

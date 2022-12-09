@@ -88,6 +88,8 @@ Route::group(['middleware' => 'admin'],function(){
     //UPDATE
     Route::put('/pages/dashboard/guru/update/{guru:id}',[GuruController::class,'update'])->name('guru.update');
 
+
+    //  PAGE WALAS
     Route::get('/pages/dashboard/walas', [WalasController::class, 'index'])->name('walas.index');
     //DELETE
     Route::delete('/pages/dashboard/walas/{walas:id}', [WalasController::class,'destroy'])->name('walas.destroy');
@@ -100,6 +102,19 @@ Route::group(['middleware' => 'admin'],function(){
     //UPDATE
     Route::put('/pages/dashboard/walas/update/{walas:id}',[WalasController::class,'update'])->name('walas.update');
 
+    //  PAGE MAPEL
+
+    Route::get('/pages/dashboard/mapel', [MapelController::class, 'index'])->name('mapel.index');
+    //DELETE
+    Route::delete('/pages/dashboard/mapel/{mapel:id}', [MapelController::class,'destroy'])->name('mapel.destroy');
+    //CREATE
+    Route::get('/pages/dashboard/mapel/create',[MapelController::class, 'create'])->name('mapel.create');
+    //STORE
+    Route::post('/pages/dashboard/mapel/create', [MapelController::class, 'store'])->name('mapel.store');
+    //EDIT
+    Route::get('/page/dashboard/mapel/{mapel:id}/edit',[MapelController::class,'edit'])->name('mapel.edit');
+    //UPDATE
+    Route::put('/pages/dashboard/mapel/update/{mapel:id}',[MapelController::class,'update'])->name('mapel.update');
 });
 
 //PAGE ADMIN KELAS

@@ -15,8 +15,8 @@
                             <div class="row mb-2">
                                 <div class="col-md-12">
                                     <span>
-                                        <p class="font-weight-bold" style="line-height: 10px" >Data Guru</p>
-                                        <p class="h2">Tambah Data Guru</p>
+                                        <p class="font-weight-bold" style="line-height: 10px" >Data Mapel</p>
+                                        <p class="h2">Tambah Data Mapel</p>
                                     </span>
                                 </div>
                             </div>

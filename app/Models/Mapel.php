@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 class Mapel extends Model
 {
     use HasFactory;
@@ -12,14 +11,10 @@ class Mapel extends Model
     protected $table = 'tbl_mapels';
 
     public function guru(){
-        $this->hasMany(Mapel::class);
-    }
-
-    public function nilai(){
-        $this->hasMany(Nilai::class);
+        return $this->hasMany(Guru::class,'id_mapel');
     }
 
     public function jurusan(){
-        $this->belongsTo(Jurusan::class,'id_jurusan','id');
+        return $this->belongsTo(Jurusan::class,'id_jurusan','id');
     }
 }

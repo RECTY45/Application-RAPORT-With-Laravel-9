@@ -12,7 +12,7 @@ class Jurusan extends Model
     protected $table = 'tbl_jurusans';
 
     public function mapel(){
-        return $this->hasMany(Mapel::class);
+        return $this->hasMany(Mapel::class, 'id');
     }
 
     public function siswa(){

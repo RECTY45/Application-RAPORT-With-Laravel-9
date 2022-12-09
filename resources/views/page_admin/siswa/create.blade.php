@@ -30,8 +30,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="nis">NIS</label>
-                            <input type="text" id="nis"
-                                value="{{ old('nis') }}"
+                            <input type="text" id="nis" value="{{ old('nis') }}"
                                 class="form-control @error('nis')is-invalid @enderror" name="nis"
                                 placeholder="Masukkan NIS">
                             @error('nis')
@@ -44,8 +43,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="nisn">NISN</label>
-                            <input type="text" id="nisn"
-                                value="{{ old('nisn') }}"
+                            <input type="number" id="nisn" value="{{ old('nisn') }}"
                                 class="form-control @error('nisn')is-invalid @enderror" name="nisn"
                                 placeholder="Masukkan NISN">
                             @error('nisn')
@@ -58,8 +56,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="nama" id="nama"
-                                value="{{ old('nama') }}"
+                            <input type="nama" id="nama" value="{{ old('nama') }}"
                                 class="form-control @error('nama')is-invalid @enderror" name="nama"
                                 placeholder="Masukkan Nama">
                             @error('nama')
@@ -87,8 +84,7 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="agama">Agama</label>
-                            <input type="agama" id="agama"
-                                value="{{ old('agama') }}"
+                            <input type="agama" id="agama" value="{{ old('agama') }}"
                                 class="form-control @error('agama')is-invalid @enderror" name="agama"
                                 placeholder="Masukkan Agama">
                             @error('agama')
@@ -100,17 +96,18 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="jurusan_id">Jurusan</label>
-                            <select name="id_jurusan" id="jurusan_id" class="form-control @error('jurusan_id')is-invalid @enderror">
+                            <label for="id_jurusan">Jurusan</label>
+                            <select name="id_jurusan" id="id_jurusan"
+                                class="form-control @error('id_jurusan')is-invalid @enderror">
                                 <option value="">- Pilih Jurusan -</option>
                                 @foreach ($jurusans as $jurusan)
-                                    @if (old('jurusan_id') == $jurusan->id)
-                                    <option value="{{ $jurusan->id }}" selected>{{ $jurusan->kode_jurusan }}</option>
+                                    @if (old('id_jurusan') == $jurusan->id)
+                                        <option value="{{ $jurusan->id }}" selected>{{ $jurusan->kode_jurusan }}</option>
                                     @endif
                                     <option value="{{ $jurusan->id }}">{{ $jurusan->kode_jurusan }}</option>
                                 @endforeach
                             </select>
-                            @error('jurusan_id')
+                            @error('id_jurusan')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -119,17 +116,18 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="kelas_id">Kelas</label>
-                            <select name="id_kelas" id="kelas_id" class="form-control @error('kelas_id')is-invalid @enderror">
+                            <label for="id_kelas">Kelas</label>
+                            <select name="id_kelas" id="id_kelas"
+                                class="form-control @error('id_kelas')is-invalid @enderror">
                                 <option value="">- Pilih Kelas -</option>
                                 @foreach ($kelas as $kelas)
-                                    @if (old('kelas_id') == $kelas->id)
-                                    <option value="{{ $kelas->id }}" selected>{{ $kelas->level }}</option>
+                                    @if (old('id_kelas') == $kelas->id)
+                                        <option value="{{ $kelas->id }}" selected>{{ $kelas->level }}</option>
                                     @endif
                                     <option value="{{ $kelas->id }}">{{ $kelas->level }}</option>
                                 @endforeach
                             </select>
-                            @error('kelas_id')
+                            @error('id_kelas')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -137,10 +135,8 @@
                         </div>
                     </div>
                     <div class="col-12 d-flex justify-content-end">
-                        <button type="submit"
-                            class="btn btn-primary me-1 mb-1">Submit</button>
-                        <a href="{{ route('siswa.index') }}"
-                            class="btn btn-light-secondary me-1 mb-1">Back</a>
+                        <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                        <a href="{{ route('siswa.index') }}" class="btn btn-light-secondary me-1 mb-1">Back</a>
                     </div>
                 </div>
             </div>
