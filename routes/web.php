@@ -9,6 +9,8 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\WalasController;
+use App\Http\Controllers\JurusanController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +34,7 @@ Route::get('/pages/dashboard', [DashboardController::class, 'dashboard'])->name(
 //PAGE ADMIN USER
 
 Route::group(['middleware' => 'admin'],function(){
-    //RECORD
+    //RECORD USER
     Route::get('/pages/dashboard/user', [UserController::class, 'index'])->name('user.index');
     //DELETE
     Route::delete('/pages/dashboard/user/{user:id}', [UserController::class,'destroy'])->name('user.destroy');
@@ -62,6 +64,7 @@ Route::group(['middleware' => 'admin'],function(){
 
     // PAGE SISWA
 
+    // RECORD SISWA
     Route::get('/pages/dashboard/siswa', [SiswaController::class, 'index'])->name('siswa.index');
     //DELETE
     Route::delete('/pages/dashboard/siswa/{siswa:id}', [SiswaController::class,'destroy'])->name('siswa.destroy');
@@ -74,8 +77,9 @@ Route::group(['middleware' => 'admin'],function(){
     //UPDATE
     Route::put('/pages/dashboard/siswa/update/{siswa:id}',[SiswaController::class,'update'])->name('siswa.update');
 
-    //Page Guru
+    // PAGE GURU
 
+    // RECORD GURU
     Route::get('/pages/dashboard/guru', [GuruController::class, 'index'])->name('guru.index');
     //DELETE
     Route::delete('/pages/dashboard/guru/{guru:id}', [GuruController::class,'destroy'])->name('guru.destroy');
@@ -90,6 +94,8 @@ Route::group(['middleware' => 'admin'],function(){
 
 
     //  PAGE WALAS
+
+    // RECORD WALAS
     Route::get('/pages/dashboard/walas', [WalasController::class, 'index'])->name('walas.index');
     //DELETE
     Route::delete('/pages/dashboard/walas/{walas:id}', [WalasController::class,'destroy'])->name('walas.destroy');
@@ -104,6 +110,7 @@ Route::group(['middleware' => 'admin'],function(){
 
     //  PAGE MAPEL
 
+    // RECORD MAPEL
     Route::get('/pages/dashboard/mapel', [MapelController::class, 'index'])->name('mapel.index');
     //DELETE
     Route::delete('/pages/dashboard/mapel/{mapel:id}', [MapelController::class,'destroy'])->name('mapel.destroy');
@@ -115,6 +122,21 @@ Route::group(['middleware' => 'admin'],function(){
     Route::get('/page/dashboard/mapel/{mapel:id}/edit',[MapelController::class,'edit'])->name('mapel.edit');
     //UPDATE
     Route::put('/pages/dashboard/mapel/update/{mapel:id}',[MapelController::class,'update'])->name('mapel.update');
+
+    //  PAGE JURUSAN
+
+    // RECORD MAPEL
+    Route::get('/pages/dashboard/jurusan', [JurusanController::class, 'index'])->name('jurusan.index');
+    //DELETE
+    Route::delete('/pages/dashboard/jurusan/{jurusan:id}', [JurusanController::class,'destroy'])->name('jurusan.destroy');
+    //CREATE
+    Route::get('/pages/dashboard/jurusan/create',[JurusanController::class, 'create'])->name('jurusan.create');
+    //STORE
+    Route::post('/pages/dashboard/jurusan/create', [JurusanController::class, 'store'])->name('jurusan.store');
+    //EDIT
+    Route::get('/page/dashboard/jurusan/{jurusan:id}/edit',[JurusanController::class,'edit'])->name('jurusan.edit');
+    //UPDATE
+    Route::put('/pages/dashboard/jurusan/update/{jurusan:id}',[JurusanController::class,'update'])->name('jurusan.update');
 });
 
 //PAGE ADMIN KELAS
