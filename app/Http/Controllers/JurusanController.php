@@ -96,6 +96,11 @@ class JurusanController extends Controller
      */
     public function destroy(Jurusan $jurusan)
     {
-        //
+        $check = $jurusan->delete();
+
+        if($check){
+            return back()->with('success','Data berhasil di hapus');
+        }
+        return back()->with('error','Data gagal di hapus');
     }
 }
