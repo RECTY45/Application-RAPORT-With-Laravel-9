@@ -43,7 +43,7 @@ class KelasController extends Controller
     {
             $validateData = $request->validate([
                 'nama_kelas' => ['required'],
-                'id_kelas' => ['required']
+                'level' => ['required']
             ]);
 
             if($validateData){
@@ -119,6 +119,6 @@ class KelasController extends Controller
         if($check){
              return redirect()->back()->with('success', 'Data berhasil di hapus');
         }
-             return redirect()->back()->with('error', 'Dataa gagal di tambahkan');
+             return redirect()->back()->with('error', 'Data gagal di hapus');
     }
 }

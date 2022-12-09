@@ -21,7 +21,7 @@
                 </div>
             </section>
             <div class="d-flex justify-content-end">
-                <a href="{{ @route('guru.create') }}" class="btn btn-primary">Tambah</a>
+                <a href="{{ @route('mapel.create') }}" class="btn btn-primary">Tambah</a>
             </div>
         </div>
         <div class="card-body">
@@ -56,9 +56,9 @@
                             <td>{{ $item->level ?? '-' }}</td>
                             <td>
                                 <div class="form-control-icon d-flex">
-                                    <a href="{{ @route('guru.edit', $item->id) }}" method="POST" class="bg-success px-2 py-1 rounded text-white mx-1"><i
+                                    <a href="{{ @route('mapel.edit', $item->id) }}" method="POST" class="bg-success px-2 py-1 rounded text-white mx-1"><i
                                             class="bi bi-pen-fill"></i></a>
-                                    <form action="{{ @route('guru.destroy', $item->id) }}" method="POST">
+                                    <form action="{{ @route('mapel.destroy', $item->id) }}" method="POST">
                                         @method('delete')
                                         @csrf
                                         <button type="submit"

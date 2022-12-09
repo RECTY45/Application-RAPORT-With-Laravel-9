@@ -40,6 +40,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Guru</th>
+                        <th>Nama Mapel</th>
                         <th>Level</th>
                         <th>Action</th>
                     </tr>
@@ -49,6 +50,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->nama_guru }}</td>
+                            <td>{{ $item->mapel->nama_mapel ?? '-' }}</td>
                             <td>{{ $item->mapel->level ?? '-' }}</td>
                             <td>
                                 <div class="form-control-icon d-flex">

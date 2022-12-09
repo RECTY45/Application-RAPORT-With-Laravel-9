@@ -15,52 +15,88 @@
                             <div class="row mb-2">
                                 <div class="col-md-12">
                                     <span>
-                                        <p class="font-weight-bold" style="line-height: 10px" >Data Guru</p>
-                                        <p class="h2">Edit Data Guru</p>
+                                        <p class="font-weight-bold" style="line-height: 10px" >Data Mapel</p>
+                                        <p class="h2">Edit Data Mapel</p>
                                     </span>
                                 </div>
                             </div>
                     </div>
 
+
                     <div class="card-body">
-                        <form action="{{ @route('guru.update', $items->id) }}" method="POST">
+                        <form action="{{ @route('mapel.update',$item->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Nama Guru</label>
-                                        <input  value='{{ $items->nama_guru }}' type="text" name="nama_guru" class="form-control @error('nama_guru')is-invalid @enderror">
-                                        @error('nama_guru')
+                                        <label>Nama Mapel</label>
+                                        <input value="{{ $item->nama_mapel }}" type="text" value="{{ old('nama_mapel')}}" name="nama_mapel" class="form-control @error('nama_mapel')is-invalid @enderror">
+                                        @error('nama_mapel')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>KKM</label>
+                                        <input value="{{ $item->kkm }}" type="text" name="kkm" class="form-control @error('kkm')is-invalid @enderror">
+                                        @error('kkm')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
                                 </div>
+
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Mapel</label>
-                                        <select value='{{ $items->mapel->nama_mapel }}' name="id_mapel" class="form-control @error('id_mapel')is-invalid @enderror">
-                                            @if ($items->mapel->nama_mapel)
-                                                <option selected value="{{ $items->mapel->nama_mapel }}">{{ $items->mapel->nama_mapel }}</option>
+                                        <label>Jurusan</label>
+                                        <select value="{{ $item->jurusan->kode_jurusan }}" name="id_jurusan" class="form-control @error('id_jurusan')is-invalid @enderror">
+                                            @if ($item->jurusan->kode_jurusan)
+                                                <option selected value="{{ $item->jurusan->id }}">{{ $item->jurusan->kode_jurusan }}</option>
                                             @endif
-                                            <option value="">- Pilih Mapel -</option>
-                                            @foreach ($mapel as $mapel)
-                                                <option value="{{ $mapel->id }}">{{ $mapel->nama_mapel }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('id_mapel')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
+                                            <option value="">- Pilih Jurusan -</option>
+                                            @foreach ($jurusans as $jurusan)
+                                            @if (old('id_jurusan') == $jurusan->id)
+                                                <option value="{{ $jurusan->id }}" selected>{{ $jurusan->kode_jurusan }}</option>
+                                            @endif
+                                            <option value="{{ $jurusan->id }}">{{ $jurusan->kode_jurusan }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    @error('id_jurusan')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                     </div>
+
+                                    <div class="form-group">
+                                        <label>Level</label>
+                                        <select value="{{ $item->level }}" name="level" class="form-control @error('level')is-invalid @enderror">
+                                            @if ($item->level)
+                                            <option selected value="{{ $item->level }}">{{ $item->level }}</option>
+                                            @endif
+                                            <option value="">- Pilih Level -</option>
+                                            <option value="X">X</option>
+                                            <option value="XI">XI</option>
+                                            <option value="XII">XII</option>
+                                    </select>
+
+                                    @error('level')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                    </div>
+
                                 </div>
                                 <div class="form-group px-3">
                                     <button type="submit" class="btn btn-sm btn-primary">Rekam</button>
 
-                                    <a href="{{@route('guru.index')}}" type="button" class="btn btn-sm btn-success">Batal</a>
+                                    <a href="{{@route('mapel.index')}}" type="button" class="btn btn-sm btn-success">Batal</a>
                                 </div>
                             </div>
                         </form>

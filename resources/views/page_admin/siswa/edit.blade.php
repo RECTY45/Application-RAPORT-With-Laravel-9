@@ -127,8 +127,10 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="kelas_id">Kelas</label>
-                            <select name="id_kelas" id="kelas_id"
-                                class="form-control @error('kelas_id')is-invalid @enderror">
+                            <select name="id_kelas" value="{{ $item->kelas->level }}" id="kelas_id" class="form-control @error('kelas_id')is-invalid @enderror">
+                                @if ( $item->kelas->level )
+                                    <option selected value="{{ $item->kelas->id }}">{{ $item->kelas->level }}</option>
+                                @endif
                                 <option value="">- Pilih Kelas -</option>
                                 @foreach ($kelas as $kelas)
                                     @if (old('kelas_id') == $kelas->id)
@@ -137,11 +139,13 @@
                                     <option value="{{ $kelas->id }}">{{ $kelas->level }}</option>
                                 @endforeach
                             </select>
+
                             @error('kelas_id')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
+
                         </div>
                     </div>
                     <div class="col-12 d-flex justify-content-end">

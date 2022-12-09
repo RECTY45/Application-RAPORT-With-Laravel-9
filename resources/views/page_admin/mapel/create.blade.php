@@ -24,36 +24,72 @@
 
 
                     <div class="card-body">
-                        <form action="" method="POST">
+                        <form action="{{ @route('mapel.create') }}" method="POST">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Nama Guru</label>
-                                        <input type="text" name="nama_guru" class="form-control @error('nama_guru')is-invalid @enderror">
-                                        @error('nama_guru')
+                                        <label>Nama Mapel</label>
+                                        <input type="text" value="{{ old('nama_mapel')}}" name="nama_mapel" class="form-control @error('nama_mapel')is-invalid @enderror">
+                                        @error('nama_mapel')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>KKM</label>
+                                        <input type="text" name="kkm" class="form-control @error('kkm')is-invalid @enderror">
+                                        @error('kkm')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
                                 </div>
+
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Mapel</label>
-                                        <select name="id_mapel" class="form-control">
-                                            <option value="">- Pilih Mapel -</option>
-                                        @error('id_mapel')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
+                                        <label>Jurusan</label>
+                                        <select name="id_jurusan" class="form-control @error('id_jurusan')is-invalid @enderror">
+                                            <option value="">- Pilih Jurusan -</option>
+                                            @foreach ($jurusans as $jurusan)
+                                            @if (old('id_jurusan') == $jurusan->id)
+                                                <option value="{{ $jurusan->id }}" selected>{{ $jurusan->kode_jurusan }}</option>
+                                            @endif
+                                            <option value="{{ $jurusan->id }}">{{ $jurusan->kode_jurusan }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    @error('id_jurusan')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                     </div>
+
+                                    <div class="form-group">
+                                        <label>Level</label>
+                                        <select name="level" class="form-control @error('level')is-invalid @enderror">
+                                            <option value="">- Pilih Level -</option>
+                                            <option value="X">X</option>
+                                            <option value="XI">XI</option>
+                                            <option value="XII">XII</option>
+                                    </select>
+
+                                    @error('level')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                    </div>
+
                                 </div>
                                 <div class="form-group px-3">
                                     <button type="submit" class="btn btn-sm btn-primary">Rekam</button>
 
-                                    <a href="{{@route('guru.index')}}" type="button" class="btn btn-sm btn-success">Batal</a>
+                                    <a href="{{@route('mapel.index')}}" type="button" class="btn btn-sm btn-success">Batal</a>
                                 </div>
                             </div>
                         </form>
