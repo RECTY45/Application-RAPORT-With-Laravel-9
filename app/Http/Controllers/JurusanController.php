@@ -73,7 +73,10 @@ class JurusanController extends Controller
      */
     public function edit(Jurusan $jurusan)
     {
-        //
+        return view('page_admin.jurusan.edit',[
+            'name' => 'EDIT',
+            'item' => $jurusan
+        ]);
     }
 
     /**
@@ -85,7 +88,21 @@ class JurusanController extends Controller
      */
     public function update(Request $request, Jurusan $jurusan)
     {
-        //
+        $validateData = $request->validate([
+            'nama_jurusan' => ['required'],
+            'kode_jurusan' => ['required']
+        ]);
+
+        if($validateData){
+            $check = $jurusan->update($validateData);
+        }
+
+
+        if($check){
+            return redirect(route('jurusan.index'))->with('success', 'Data berhasil di update');
+        }
+
+        return back()->with('error','Data gagal di update');
     }
 
     /**

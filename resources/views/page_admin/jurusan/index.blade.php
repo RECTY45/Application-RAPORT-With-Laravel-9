@@ -14,8 +14,8 @@
                 <div class="row mb-2">
                     <div class="col-md-12">
                         <span>
-                            <p class="font-weight-bold" style="line-height: 10px">Data Kelas</p>
-                            <p class="h2">Kelola Data Kelas</p>
+                            <p class="font-weight-bold" style="line-height: 10px">Data Jurusan</p>
+                            <p class="h2">Kelola Data Jurusan</p>
                         </span>
                     </div>
                 </div>

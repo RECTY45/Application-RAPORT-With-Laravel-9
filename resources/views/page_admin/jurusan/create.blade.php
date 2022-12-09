@@ -37,20 +37,24 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Kode Jurusan</label>
-                        <input type="text" name="kode_jurusan" class="form-control @error('kode_jurusan')is-invalid @enderror" placeholder="Masukkan Kode Jurusan">
-                        @error('kode_jurusan')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
+                    <label>Kode Jurusan</label>
+                    <select name="kode_jurusan" class="form-control @error('kode_jurusan')is-invalid @enderror">
+                        <option value="">- Pilih Jurusan -</option>
+                       <option value="RPL">RPL</option>
+                       <option value="TKJ">TKJ</option>
+                       <option value="MMD">MMD</option>
+                       @error('kode_jurusan')
+                           <div class="invalid-feedback">
+                            {{ $message }}
+                           </div>
+                       @enderror
+
+                </select>
                 </div>
                 <div class="form-group px-3">
                     <button type="submit" class="btn btn-sm btn-primary">Rekam</button>
 
-                    <a href="{{ @route('guru.index') }}" type="button" class="btn btn-sm btn-success">Batal</a>
+                    <a href="{{ @route('jurusan.index') }}" type="button" class="btn btn-sm btn-success">Batal</a>
                 </div>
             </div>
         </form>
