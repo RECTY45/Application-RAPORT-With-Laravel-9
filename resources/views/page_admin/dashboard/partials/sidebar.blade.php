@@ -90,7 +90,7 @@
                             class="fa fa-laptop me-2"></i>Tahun Pelajaran</a>
                     <div class="dropdown-menu bg-transparent border-0">
                         <a href="{{ route('tapel.index') }}" class="dropdown-item">View</a>
-                        <a href="{{ route('guru.create') }}" class="dropdown-item">Add</a>
+                        <a href="{{ route('tapel.create') }}" class="dropdown-item">Add</a>
                     </div>
                 </div>
             @endif

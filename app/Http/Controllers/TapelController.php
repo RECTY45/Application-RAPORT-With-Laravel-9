@@ -76,7 +76,10 @@ class TapelController extends Controller
      */
     public function edit(Tapel $tapel)
     {
-        //
+        return view('page_admin.tahunpelajaran.edit',[
+            'name' => 'EDIT',
+            'item'  => $tapel
+        ]);
     }
 
     /**
@@ -88,7 +91,19 @@ class TapelController extends Controller
      */
     public function update(Request $request, Tapel $tapel)
     {
-        //
+        $validateData = $request->validate([
+            'tahun_pelajaran' => ['required'],
+            'semester' => ['required'],
+            'aktif' => ['required']
+        ]);
+
+        if($validateData){
+            $check = $tapel->update($validateData);
+        }
+        if($check){
+            return redirect(route('tapel.index'))->with('success', 'Data berhasil di ubah');
+        }
+        return back()->with('error','Data gagal di ubah');
     }
 
     /**

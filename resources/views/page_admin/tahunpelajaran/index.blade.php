@@ -51,7 +51,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->tahun_pelajaran ?? '-' }}</td>
                             <td>{{ $item->semester ?? '-' }}</td>
-                            <td>{{ $item->aktif ?? '-' }}</td>
+                            <td>{{ $item->aktif === '1' ? 'Aktif' : 'Tidak'}}</td>
                             <td>
                                 <div class="form-control-icon d-flex">
                                     <a href="{{ @route('tapel.edit', $item->id) }}" method="POST" class="bg-success px-2 py-1 rounded text-white mx-1"><i
