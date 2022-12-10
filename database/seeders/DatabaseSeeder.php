@@ -10,6 +10,7 @@ use App\Models\Mapel;
 use App\Models\Siswa;
 use App\Models\Jurusan;
 use App\Models\Kelas;
+use App\Models\Tapel;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -153,6 +154,20 @@ class DatabaseSeeder extends Seeder
                     ],
                 ];
 
+
+                $tapels = [
+                    [
+                        'tahun_pelajaran' => '08-09-2023',
+                        'semester' => '02',
+                        'aktif' => '1'
+                    ],
+                    [
+                        'tahun_pelajaran' => '05-03-2023',
+                        'semester' => '05',
+                        'aktif' => '0'
+                    ],
+                ];
+
                 foreach($users as $user){
                     User::create($user);
                 }
@@ -172,6 +187,9 @@ class DatabaseSeeder extends Seeder
                 }
                 foreach($jurusans as $jurusan){
                     Jurusan::create($jurusan);
+                }
+                foreach($tapels as $tapel){
+                    Tapel::create($tapel);
                 }
     }
 }

@@ -10,6 +10,7 @@ use App\Http\Controllers\MapelController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\WalasController;
 use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\TapelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -137,6 +138,21 @@ Route::group(['middleware' => 'admin'],function(){
     Route::get('/page/dashboard/jurusan/{jurusan:id}/edit',[JurusanController::class,'edit'])->name('jurusan.edit');
     //UPDATE
     Route::put('/pages/dashboard/jurusan/update/{jurusan:id}',[JurusanController::class,'update'])->name('jurusan.update');
+
+    //  PAGE TAPEL
+
+    // RECORD TAPEL
+    Route::get('/pages/dashboard/tapel', [TapelController::class, 'index'])->name('tapel.index');
+    //DELETE
+    Route::delete('/pages/dashboard/tapel/{tapel:id}', [TapelController::class,'destroy'])->name('tapel.destroy');
+    //CREATE
+    Route::get('/pages/dashboard/tapel/create',[TapelController::class, 'create'])->name('tapel.create');
+    //STORE
+    Route::post('/pages/dashboard/tapel/create', [TapelController::class, 'store'])->name('tapel.store');
+    //EDIT
+    Route::get('/page/dashboard/tapel/{tapel:id}/edit',[TapelController::class,'edit'])->name('tapel.edit');
+    //UPDATE
+    Route::put('/pages/dashboard/tapel/update/{tapel:id}',[TapelController::class,'update'])->name('tapel.update');
 });
 
 //PAGE ADMIN KELAS

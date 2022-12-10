@@ -14,7 +14,11 @@ class TapelController extends Controller
      */
     public function index()
     {
-        //
+        $items = Tapel::all();
+        return view('page_admin.tahunpelajaran.index',[
+            'name' => 'TAHUN PELAJARAN',
+            'items' => $items,
+        ]);
     }
 
     /**
@@ -24,7 +28,9 @@ class TapelController extends Controller
      */
     public function create()
     {
-        //
+        return view('page_admin.tahunpelajaran.create',[
+            'name' => 'TAMBAH',
+        ]);
     }
 
     /**
@@ -33,9 +39,22 @@ class TapelController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Tapel $tapel)
     {
-        //
+        $validateData = $request->validate([
+            'tahun_pelajaran' => ['required'],
+            'semester' => ['required'],
+            'aktif' => ['required']
+        ]);
+
+        if($validateData){
+            $check = $tapel->create($validateData);
+        }
+
+        if($check){
+            return redirect(route('tapel.index'))->with('success','Data berhasil di tambah');
+        }
+        return back()->with('error','Data gagal di tambah');
     }
 
     /**

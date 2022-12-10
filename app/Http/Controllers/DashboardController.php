@@ -15,10 +15,12 @@ class DashboardController extends Controller
         // $jmlGuru = "Model Guru Bermasalah";
         $jmlguru = count(Guru::all());
         $jmlSiswa = count(Siswa::all());
+        $jmlJurusan = count(Jurusan::all());
         return view('page_admin.dashboard.index',[
             'name' => 'DASHBOARD',
             'jmlGuru' => $jmlguru,
-            'jmlSiswa' => $jmlSiswa
+            'jmlSiswa' => $jmlSiswa,
+            'jmlJurusan' => $jmlJurusan
         ]);
     }
 }
