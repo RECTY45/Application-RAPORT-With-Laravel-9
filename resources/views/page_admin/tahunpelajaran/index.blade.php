@@ -54,9 +54,9 @@
                             <td>{{ $item->aktif ?? '-' }}</td>
                             <td>
                                 <div class="form-control-icon d-flex">
-                                    <a href="{{ @route('mapel.edit', $item->id) }}" method="POST" class="bg-success px-2 py-1 rounded text-white mx-1"><i
+                                    <a href="{{ @route('tapel.edit', $item->id) }}" method="POST" class="bg-success px-2 py-1 rounded text-white mx-1"><i
                                             class="bi bi-pen-fill"></i></a>
-                                    <form action="{{ @route('mapel.destroy', $item->id) }}" method="POST">
+                                    <form action="{{ @route('tapel.destroy', $item->id) }}" method="POST">
                                         @method('delete')
                                         @csrf
                                         <button type="submit"

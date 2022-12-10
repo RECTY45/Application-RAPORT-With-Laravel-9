@@ -99,6 +99,10 @@ class TapelController extends Controller
      */
     public function destroy(Tapel $tapel)
     {
-        //
+        $check = $tapel->delete();
+        if($check){
+            return back()->with('success', 'Data berhasil di hapus');
+        }
+        return back()->with('success', 'Data gagal di hapus');
     }
 }
