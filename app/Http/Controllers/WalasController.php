@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Guru;
+use App\Models\Kelas;
+use App\Models\Walas;
 use Illuminate\Http\Request;
 
 class WalasController extends Controller
@@ -13,7 +15,11 @@ class WalasController extends Controller
      */
     public function index()
     {
-        //
+        $items = Walas::all();
+        return view('page_admin.walas.index',[
+            'name' => 'WALAS',
+            'items' => $items
+        ]);
     }
 
     /**
@@ -77,8 +83,12 @@ class WalasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Walas $walas)
     {
-        //
+        $check = $walas->delete();
+        if($check){
+            return back()->with('success','Data berhasil di hapus');
+        }
+        return back()->with('error','Data gagal di hapus');
     }
 }

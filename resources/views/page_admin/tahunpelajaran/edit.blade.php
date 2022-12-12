@@ -1,6 +1,6 @@
 @extends('page_admin.dashboard.layouts.main')
 @section('content')
-    {{-- <!-- Spinner Start -->
+{{-- <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
@@ -51,11 +51,10 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Aktif</label>
-                        <select value="{{ $item->aktif }}" name="aktif" class="form-control @error('aktif')is-invalid @enderror">
-                            @if ($item->aktif)
-                                <option value="{{ $item->id }}">{{ $item->aktif === '1' ? 'Aktif' : 'Tidak' }}</option>
+                        <select value="{{ $item }}" name="aktif" class="form-control @error('aktif')is-invalid @enderror">
+                            @if ($item)
+                                <option value="{{ $item->id }}">{{ $item->aktif === '0' ? 'Tidak' : 'Aktif'}}</option>
                             @endif
-                            <option value="">- Pilih -</option>
                             <option value="1">Aktif</option>
                             <option value="0">Tidak</option>
                         </select>

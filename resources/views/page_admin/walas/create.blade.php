@@ -13,34 +13,23 @@
         <div class="row mb-2">
             <div class="col-md-12">
                 <span>
-                    <p class="font-weight-bold" style="line-height: 10px">Data Tahun Pelaran</p>
-                    <p class="h2">Tambah Data Tahun Pelajaran</p>
+                    <p class="font-weight-bold" style="line-height: 10px">Data Walas</p>
+                    <p class="h2">Tambah Data Walas</p>
                 </span>
             </div>
         </div>
     </div>
 
+
     <div class="card-body">
-        <form action="{{ @route('tapel.store') }}" method="POST">
+        <form action="" method="POST">
             @csrf
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Tahun Pelajaran</label>
-                        <input type="text" name="tahun_pelajaran"
-                        class="form-control @error('tahun_pelajaran')is-invalid @enderror" placeholder="Silahkan Masukkan Tahun Pelajaran">
-
-                        @error('tahun_pelajaran')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label>Semester</label>
-                        <input type="text" name="semester"
-                            class="form-control @error('semester')is-invalid @enderror" placeholder="Silahkan Masukkan Semester">
-                        @error('semester')
+                        <label>Nama Walas</label>
+                        <input type="text" name="nama_guru" class="form-control @error('nama_guru')is-invalid @enderror">
+                        @error('nama_guru')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -49,13 +38,14 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Aktif</label>
-                        <select name="aktif" class="form-control @error('aktif')is-invalid @enderror">
-                            <option value="">- Pilih Aktif -</option>
-                            <option value="1">Aktif</option>
-                            <option value="0">Tidak</option>
+                        <label>Mapel</label>
+                        <select name="id_mapel" class="form-control @error('id_mapel')is-invalid @enderror">
+                            <option value="">- Pilih Mapel -</option>
+                            @foreach ($mapel as $mapel)
+                                <option value="{{ $mapel->id }}">{{ $mapel->nama_mapel }}</option>
+                            @endforeach
                         </select>
-                        @error('aktif')
+                        @error('id_mapel')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -65,7 +55,7 @@
                 <div class="form-group px-3">
                     <button type="submit" class="btn btn-sm btn-primary">Rekam</button>
 
-                    <a href="{{ @route('kelas.index') }}" type="button" class="btn btn-sm btn-success">Batal</a>
+                    <a href="{{ @route('guru.index') }}" type="button" class="btn btn-sm btn-success">Batal</a>
                 </div>
             </div>
         </form>

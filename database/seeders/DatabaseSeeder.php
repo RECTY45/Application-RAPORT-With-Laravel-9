@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Guru;
+use App\Models\Walas;
 use App\Models\Mapel;
 use App\Models\Siswa;
 use App\Models\Jurusan;
@@ -168,6 +169,23 @@ class DatabaseSeeder extends Seeder
                     ],
                 ];
 
+
+                $walas = [
+                    [
+                       'id_guru' => 1,
+                       'id_kelas' => 1
+                    ],
+                    [
+                        'id_guru' => 2,
+                        'id_kelas' => 2
+                    ],
+                    [
+                        'id_guru' => 3,
+                        'id_kelas' => 3
+                    ]
+                 ];
+
+
                 foreach($users as $user){
                     User::create($user);
                 }
@@ -190,6 +208,9 @@ class DatabaseSeeder extends Seeder
                 }
                 foreach($tapels as $tapel){
                     Tapel::create($tapel);
+                }
+                foreach($walas as $walas){
+                    Walas::create($walas);
                 }
     }
 }
