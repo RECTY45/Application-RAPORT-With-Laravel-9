@@ -14,23 +14,29 @@
             <div class="col-md-12">
                 <span>
                     <p class="font-weight-bold" style="line-height: 10px">Data Walas</p>
-                    <p class="h2">Edit Data Walas</p>
+                    <p class="h2">Tambah Data Walas</p>
                 </span>
             </div>
         </div>
     </div>
 
+
     <div class="card-body">
-        <form action="" method="POST">
+        <form action="{{ route('walas.update',$item->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Nama Guru</label>
-                        <input value='{{ $items->nama_guru }}' type="text" name="nama_guru"
-                            class="form-control @error('nama_guru')is-invalid @enderror">
-                        @error('nama_guru')
+                        <label>Walas</label>
+                        <select name="id_guru" class="form-control @error('id_guru')is-invalid @enderror">
+                            <option selected value="{{ $item->id }}">{{ $item->guru->nama_guru }}</option>
+                            <option value="">- Pilih Walas -</option>
+                            @foreach ($gurus as $guru)
+                                <option value="{{ $guru->id }}">{{ $guru->nama_guru }}</option>
+                            @endforeach
+                        </select>
+                        @error('id_guru')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -39,18 +45,15 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Level</label>
-                        <select value='{{ $items->mapel->nama_mapel }}' name="id_mapel"
-                            class="form-control @error('id_mapel')is-invalid @enderror">
-                            @if ($items->mapel->nama_mapel)
-                                <option selected value="{{ $items->mapel->id }}">{{ $items->mapel->nama_mapel }}</option>
-                            @endif
-                            <option value="">- Pilih Level -</option>
-                            @foreach ($mapel as $mapel)
-                                <option value="{{ $mapel->id }}">{{ $mapel->nama_mapel }}</option>
+                        <label>Kelas</label>
+                        <select name="id_kelas" class="form-control @error('id_kelas')is-invalid @enderror">
+                            <option value="{{ $item->kelas->id }}">{{ $item->kelas->nama_kelas}}</option>
+                            <option value="">- Pilih Kelas -</option>
+                            @foreach ($kelass as $kelas)
+                                <option value="{{ $kelas->id  }}">{{ $kelas->nama_kelas }}</option>
                             @endforeach
                         </select>
-                        @error('id_mapel')
+                        @error('id_kelas')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -60,7 +63,7 @@
                 <div class="form-group px-3">
                     <button type="submit" class="btn btn-sm btn-primary">Rekam</button>
 
-                    <a href="{{ @route('guru.index') }}" type="button" class="btn btn-sm btn-success">Batal</a>
+                    <a href="{{ @route('walas.index') }}" type="button" class="btn btn-sm btn-success">Batal</a>
                 </div>
             </div>
         </form>

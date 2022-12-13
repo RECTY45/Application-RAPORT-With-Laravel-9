@@ -82,9 +82,16 @@ class WalasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Walas $walas)
     {
-        //
+        $kelas = Kelas::all();
+        $guru = Guru::all();
+        return view('page_admin.walas.edit',[
+            'name' => 'EDIT',
+            'item' => $walas,
+            'kelass' => $kelas,
+            'gurus' => $guru
+        ]);
     }
 
     /**
@@ -94,9 +101,23 @@ class WalasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Walas $walas)
     {
-        //
+        $id_Guru = Guru::pluck('id')->toArray();
+        $id_Kelas = Kelas::pluck('id')->toArray();
+
+        $validateData = $request->validate([
+            'id_guru' => ['required',Rule::in($id_Guru)],
+            'id_kelas' => ['required',Rule::in($id_Kelas)]
+        ]);
+
+        if($validateData){
+            $check = $walas->update($validateData);
+        }
+        if($check){
+            return redirect(route('walas.index'))->with('success','Data berhasil di update');
+        }
+        return back()->with('error','Data gagal di update');
     }
 
     /**

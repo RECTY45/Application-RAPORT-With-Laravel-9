@@ -55,7 +55,7 @@
                     <i class="fa fa-chart-pie fa-3x text-primary"></i>
                     <div class="ms-3">
                         <p class="mb-2">Walas</p>
-                        <h6 class="mb-0">1</h6>
+                        <h6 class="mb-0">{{ $jmlWalas }}</h6>
                     </div>
                 </div>
             </div>
