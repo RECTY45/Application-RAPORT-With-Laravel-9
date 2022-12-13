@@ -22,14 +22,19 @@
 
 
     <div class="card-body">
-        <form action="" method="POST">
+        <form action="{{ route('walas.store') }}" method="POST">
             @csrf
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Nama Walas</label>
-                        <input type="text" name="nama_guru" class="form-control @error('nama_guru')is-invalid @enderror">
-                        @error('nama_guru')
+                        <label>Walas</label>
+                        <select name="id_guru" class="form-control @error('id_guru')is-invalid @enderror">
+                            <option value="">- Pilih Walas -</option>
+                            @foreach ($gurus as $guru)
+                                <option value="{{ $guru->id }}">{{ $guru->nama_guru }}</option>
+                            @endforeach
+                        </select>
+                        @error('id_guru')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -38,14 +43,14 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Mapel</label>
-                        <select name="id_mapel" class="form-control @error('id_mapel')is-invalid @enderror">
-                            <option value="">- Pilih Mapel -</option>
-                            @foreach ($mapel as $mapel)
-                                <option value="{{ $mapel->id }}">{{ $mapel->nama_mapel }}</option>
+                        <label>Kelas</label>
+                        <select name="id_kelas" class="form-control @error('id_kelas')is-invalid @enderror">
+                            <option value="">- Pilih Kelas -</option>
+                            @foreach ($kelass as $kelas)
+                                <option value="{{ $kelas->id  }}">{{ $kelas->nama_kelas }}</option>
                             @endforeach
                         </select>
-                        @error('id_mapel')
+                        @error('id_kelas')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -55,7 +60,7 @@
                 <div class="form-group px-3">
                     <button type="submit" class="btn btn-sm btn-primary">Rekam</button>
 
-                    <a href="{{ @route('guru.index') }}" type="button" class="btn btn-sm btn-success">Batal</a>
+                    <a href="{{ @route('walas.index') }}" type="button" class="btn btn-sm btn-success">Batal</a>
                 </div>
             </div>
         </form>

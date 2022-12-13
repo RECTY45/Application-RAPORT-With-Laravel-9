@@ -5,6 +5,7 @@ use App\Models\Guru;
 use App\Models\Kelas;
 use App\Models\Walas;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class WalasController extends Controller
 {
@@ -29,7 +30,13 @@ class WalasController extends Controller
      */
     public function create()
     {
-        //
+        $kelas = Kelas::all();
+        $guru = Guru::all();
+        return view('page_admin.walas.create',[
+            'name' => 'Tambah',
+            'kelass' => $kelas,
+            'gurus' => $guru
+        ]);
     }
 
     /**
@@ -40,7 +47,22 @@ class WalasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id_Guru = Guru::pluck('id')->toArray();
+        $id_Kelas = Kelas::pluck('id')->toArray();
+
+        $validateData = $request->validate([
+            'id_guru' => ['required',Rule::in($id_Guru)],
+            'id_kelas' => ['required',Rule::in($id_Kelas)]
+        ]);
+
+        if($validateData){
+            $check = Walas::create($validateData);
+        }
+        if($check){
+            return redirect(route('walas.index'))->with('success','Data berhasil di tambah');
+        }
+        return back()->with('error','Data gagal di tambah');
+
     }
 
     /**
