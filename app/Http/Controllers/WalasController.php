@@ -6,6 +6,7 @@ use App\Models\Kelas;
 use App\Models\Walas;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+Use Alert;
 
 class WalasController extends Controller
 {
@@ -59,6 +60,7 @@ class WalasController extends Controller
             $check = Walas::create($validateData);
         }
         if($check){
+            Alert::success('Success', 'Data berhasil di Tambah !!!');
             return redirect(route('walas.index'))->with('success','Data berhasil di tambah');
         }
         return back()->with('error','Data gagal di tambah');
@@ -115,7 +117,8 @@ class WalasController extends Controller
             $check = $walas->update($validateData);
         }
         if($check){
-            return redirect(route('walas.index'))->with('success','Data berhasil di update');
+            Alert::success('Success', 'Data berhasil di Edit !!!');
+            return redirect(route('walas.index'))->with('success','Data berhasil di Edit');
         }
         return back()->with('error','Data gagal di update');
     }
@@ -130,6 +133,7 @@ class WalasController extends Controller
     {
         $check = $walas->delete();
         if($check){
+            Alert::success('Success', 'Data berhasil di Hapus !!!');
             return back()->with('success','Data berhasil di hapus');
         }
         return back()->with('error','Data gagal di hapus');

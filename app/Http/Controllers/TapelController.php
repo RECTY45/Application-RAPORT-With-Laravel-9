@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tapel;
 use Illuminate\Http\Request;
-
+Use Alert;
 class TapelController extends Controller
 {
     /**
@@ -52,6 +52,7 @@ class TapelController extends Controller
         }
 
         if($check){
+            Alert::success('Success', 'Data berhasil di Tambah !!!');
             return redirect(route('tapel.index'))->with('success','Data berhasil di tambah');
         }
         return back()->with('error','Data gagal di tambah');
@@ -101,9 +102,10 @@ class TapelController extends Controller
             $check = $tapel->update($validateData);
         }
         if($check){
-            return redirect(route('tapel.index'))->with('success', 'Data berhasil di ubah');
+            Alert::success('Success', 'Data berhasil di Ubah !!!');
+            return redirect(route('tapel.index'))->with('success', 'Data berhasil di Edit');
         }
-        return back()->with('error','Data gagal di ubah');
+        return back()->with('error','Data gagal di Edit');
     }
 
     /**
@@ -116,6 +118,7 @@ class TapelController extends Controller
     {
         $check = $tapel->delete();
         if($check){
+            Alert::success('Success', 'Data berhasil di Hapus !!!');
             return back()->with('success', 'Data berhasil di hapus');
         }
         return back()->with('success', 'Data gagal di hapus');

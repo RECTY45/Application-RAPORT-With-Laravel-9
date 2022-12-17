@@ -11,7 +11,6 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\WalasController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\TapelController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes

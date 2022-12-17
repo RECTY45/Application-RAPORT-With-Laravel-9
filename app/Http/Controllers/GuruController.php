@@ -6,6 +6,7 @@ use App\Models\Guru;
 use App\Models\Mapel;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+Use Alert;
 class GuruController extends Controller
 {
     /**
@@ -55,6 +56,7 @@ class GuruController extends Controller
         $check = Guru::create($validateData);
 
         if($check){
+             Alert::success('Success', 'Data berhasil di Tambah !!!');
              return redirect(@route('guru.index'))->with('success', 'Data berhasil di tambah');
         }
         return back()->with('error', 'Data gagal di tambah');
@@ -106,6 +108,7 @@ class GuruController extends Controller
         $check = $guru->update($validateData);
 
         if($check){
+             Alert::success('Success', 'Data berhasil di Update !!!');
              return redirect(@route('guru.index'))->with('success', 'Data berhasil di Update');
         }
         return back()->with('error', 'Data gagal di Update');
@@ -122,6 +125,7 @@ class GuruController extends Controller
         $check = $guru->delete();
 
         if($check){
+            Alert::success('Success', 'Data berhasil di Hapus !!!');
             return back()->with('success','Data berhasil di hapus');
         }
             return back()->with('error','Data gagal di hapus');

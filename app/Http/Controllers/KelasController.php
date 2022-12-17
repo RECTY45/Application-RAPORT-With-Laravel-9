@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kelas;
 use Illuminate\Http\Request;
+Use Alert;
 
 class KelasController extends Controller
 {
@@ -51,6 +52,7 @@ class KelasController extends Controller
             }
 
             if($check){
+                Alert::success('Success', 'Data berhasil di Tambah !!!');
                 return redirect(route('kelas.index'))->with('success', 'Data berhasil di tambahkan');
             }
             return back()->with('error','Data gagal ditambahkan');
@@ -101,7 +103,8 @@ class KelasController extends Controller
 
 
         if($check){
-            return redirect(route('kelas.index'))->with('success', 'Data berhasil di update');
+            Alert::success('Success', 'Data berhasil di Edit !!!');
+            return redirect(route('kelas.index'))->with('success', 'Data berhasil di edit');
         }
 
         return back()->with('error','Data gagal di update');
@@ -117,6 +120,7 @@ class KelasController extends Controller
     {
         $check = $kelas->delete();
         if($check){
+             Alert::success('Success', 'Data berhasil di Hapus !!!');
              return redirect()->back()->with('success', 'Data berhasil di hapus');
         }
              return redirect()->back()->with('error', 'Data gagal di hapus');

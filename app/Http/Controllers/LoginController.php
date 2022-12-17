@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 class LoginController extends Controller
 {
     public function Login(){
@@ -24,6 +23,7 @@ class LoginController extends Controller
 
             return redirect()->intended('/pages/dashboard')->with('success', 'login berhasil');
         }
+
         return back()->with('error', 'login wrong!!!');
 
     }

@@ -31,6 +31,7 @@
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 </head>
 <body>
+    @include('sweetalert::alert')
     <div class="container-xxl position-relative bg-white d-flex p-0">
         @include('page_admin.dashboard.partials.sidebar')
         <div class="content">

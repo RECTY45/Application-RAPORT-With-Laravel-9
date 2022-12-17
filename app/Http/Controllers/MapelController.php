@@ -7,7 +7,7 @@ use App\Models\Guru;
 use App\Models\Jurusan;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-
+Use Alert;
 class MapelController extends Controller
 {
     /**
@@ -58,6 +58,7 @@ class MapelController extends Controller
             $check = Mapel::create($validateData);
         }
         if($check){
+         Alert::success('Success', 'Data berhasil di Tambah !!!');
          return redirect(route('mapel.index'))->with('success','Data berhasil di tambahkan');
         }
         return back()->with('error','Data gagal di tambahkan');
@@ -111,9 +112,10 @@ class MapelController extends Controller
             $check = $mapel->update($validateData);
         }
         if($check){
-         return redirect(route('mapel.index'))->with('success','Data berhasil di update');
+         Alert::success('Success', 'Data berhasil di Edit !!!');
+         return redirect(route('mapel.index'))->with('success','Data berhasil di edit');
         }
-        return back()->with('error','Data gagal di update');
+        return back()->with('error','Data gagal di edit');
     }
 
     /**
@@ -127,6 +129,7 @@ class MapelController extends Controller
         $check = $mapel->delete();
 
         if($check){
+           Alert::success('Success', 'Data berhasil di Hapus !!!');
            return redirect()->back()->with('success','Data berhasil di hapus');
         }
         return redirect()->back()->with('error','Data gagal di hapus');

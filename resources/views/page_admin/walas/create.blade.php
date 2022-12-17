@@ -47,7 +47,7 @@
                         <select name="id_kelas" class="form-control @error('id_kelas')is-invalid @enderror">
                             <option value="">- Pilih Kelas -</option>
                             @foreach ($kelass as $kelas)
-                                <option value="{{ $kelas->id  }}">{{ $kelas->nama_kelas }}</option>
+                                <option value="{{ $kelas->id  }}">{{ $kelas->level ?? '-' }}-{{ $kelas->nama_kelas ?? '-'}}</option>
                             @endforeach
                         </select>
                         @error('id_kelas')

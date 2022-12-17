@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Jurusan;
 use Illuminate\Http\Request;
+Use Alert;
 class JurusanController extends Controller
 {
     /**
@@ -49,6 +50,7 @@ class JurusanController extends Controller
         }
 
         if($check){
+            Alert::success('Success', 'Data berhasil di Tambah !!!');
             return redirect(route('jurusan.index'))->with('success', 'Data berhasil di tambah');
         }
         return back()->with('error','Data gagal di tambah');
@@ -99,7 +101,8 @@ class JurusanController extends Controller
 
 
         if($check){
-            return redirect(route('jurusan.index'))->with('success', 'Data berhasil di update');
+            Alert::success('Success', 'Data berhasil di Edit !!!');
+            return redirect(route('jurusan.index'))->with('success', 'Data berhasil di edit');
         }
 
         return back()->with('error','Data gagal di update');
@@ -116,6 +119,7 @@ class JurusanController extends Controller
         $check = $jurusan->delete();
 
         if($check){
+            Alert::success('Success', 'Data berhasil di Hapus !!!');
             return back()->with('success','Data berhasil di hapus');
         }
         return back()->with('error','Data gagal di hapus');

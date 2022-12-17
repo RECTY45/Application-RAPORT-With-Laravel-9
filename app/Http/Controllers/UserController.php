@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-
+Use Alert;
 class UserController extends Controller
 {
     /**
@@ -55,7 +55,8 @@ class UserController extends Controller
         }
 
         if($check){
-            return redirect(@route('user.index'))->with('success','Data berhasil ditambah');
+            Alert::success('Success', 'Data berhasil di tambah !!!');
+            return redirect(@route('user.index'))->with('success','Data berhasil di tambah');
         }
 
         return back()->with('error', 'Data gagal ditambah');
@@ -106,6 +107,7 @@ class UserController extends Controller
         }
 
         if($check){
+            Alert::success('Success', 'Data berhasil di edit !!!');
             return redirect(route('user.index'))->with('success', 'Data berhasil di edit');
         }
 
@@ -123,6 +125,8 @@ class UserController extends Controller
         $check = $user->delete();
 
         if($check){
+
+            Alert::success('Success', 'Data berhasil di hapus');
             return back()->with('success', 'berhasil di hapus');
         }
 

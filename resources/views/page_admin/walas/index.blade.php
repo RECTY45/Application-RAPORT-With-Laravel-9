@@ -49,7 +49,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->guru->nama_guru ?? '-' }}</td>
-                            <td>{{ $item->kelas->nama_kelas ?? '-' }}</td>
+                            <td>{{ $item->kelas->level }}-{{ $item->kelas->nama_kelas ?? '-' }}</td>
                             <td>
                                 <div class="form-control-icon d-flex">
                                     <a href="{{ @route('walas.edit', $item->id) }}" method="POST"

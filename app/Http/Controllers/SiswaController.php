@@ -6,7 +6,7 @@ use App\Models\Kelas;
 use App\Models\Jurusan;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-
+Use Alert;
 class SiswaController extends Controller
 {
     /**
@@ -65,6 +65,7 @@ class SiswaController extends Controller
         }
 
         if($check){
+            Alert::success('Success', 'Data berhasil di Tambah !!!');
             return redirect(route('siswa.index'))->with('success', 'Data berhasil di tambahkan');
         }
 
@@ -129,6 +130,7 @@ class SiswaController extends Controller
         }
 
         if($check){
+            Alert::success('Success', 'Data berhasil di Edit !!!');
             return redirect(route('siswa.index'))->with('success', 'Data berhasil di edit');
         }
 
@@ -146,7 +148,7 @@ class SiswaController extends Controller
         $siswa = Siswa::findOrFail($id);
 
         $siswa->delete();
-
+        Alert::success('Success', 'Data berhasil di Hapus !!!');
         return redirect()->route('siswa.index')->with('success', 'Data berhasil dihapus');
     }
 }
