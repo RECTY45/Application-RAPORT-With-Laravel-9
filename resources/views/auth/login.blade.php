@@ -50,8 +50,9 @@
                     </div>
                     @endif
                     @if (session()->has('error'))
-                    <div class="alert-danger p-3 rounded">
+                    <div class="alert alert-danger alert-dismissible fade show mb-5 p-3" role="alert">
                         {{session('error')}}
+                        <button type="button" class="btn btn-close" data-bs-dismiss="alert" aria-label="close">X</button>
                     </div>
                     @endif
                     <h3>Log In</h3>
@@ -108,14 +109,14 @@
         <!-- End Row -->
     </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{ asset('assets/lib/easing/easing.min.js') }}"></script>
     <!-- End Page Vendor Js -->
     <!-- Begin Page Snippets -->
-    <script src="../assets/js/components/tabs/animated-tabs.min.js"></script>
+    <script src="{{ asset('assets/js/components/tabs/animated-tabs.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
     <script>
     </script>

@@ -108,10 +108,10 @@ class GuruController extends Controller
         $check = $guru->update($validateData);
 
         if($check){
-             Alert::success('Success', 'Data berhasil di Update !!!');
-             return redirect(@route('guru.index'))->with('success', 'Data berhasil di Update');
+             Alert::success('Success', 'Data berhasil di Edit !!!');
+             return redirect(@route('guru.index'))->with('success', 'Data berhasil di edit');
         }
-        return back()->with('error', 'Data gagal di Update');
+        return back()->with('error', 'Data gagal di edit');
     }
 
     /**
@@ -122,7 +122,7 @@ class GuruController extends Controller
      */
     public function destroy(Guru $guru)
     {
-        $check = $guru->delete();
+        $check = Guru::deleteData($guru->id);
 
         if($check){
             Alert::success('Success', 'Data berhasil di Hapus !!!');

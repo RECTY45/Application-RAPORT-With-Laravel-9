@@ -55,14 +55,14 @@
                                         <label>Jurusan</label>
                                         <select value="{{ $item->jurusan->kode_jurusan }}" name="id_jurusan" class="form-control @error('id_jurusan')is-invalid @enderror">
                                             @if ($item->jurusan->kode_jurusan)
-                                                <option selected value="{{ $item->jurusan->id }}">{{ $item->jurusan->kode_jurusan }}</option>
+                                                <option selected value="{{ $item->jurusan->id }}">{{ $item->jurusan->kode_jurusan ?? '-'}}</option>
                                             @endif
                                             <option value="">- Pilih Jurusan -</option>
                                             @foreach ($jurusans as $jurusan)
                                             @if (old('id_jurusan') == $jurusan->id)
-                                                <option value="{{ $jurusan->id }}" selected>{{ $jurusan->kode_jurusan }}</option>
+                                                <option value="{{ $jurusan->id }}" selected>{{ $jurusan->kode_jurusan ?? '-'}}</option>
                                             @endif
-                                            <option value="{{ $jurusan->id }}">{{ $jurusan->kode_jurusan }}</option>
+                                            <option value="{{ $jurusan->id }}">{{ $jurusan->kode_jurusan ?? '-'}}</option>
                                         @endforeach
                                     </select>
 
@@ -75,9 +75,9 @@
 
                                     <div class="form-group">
                                         <label>Level</label>
-                                        <select value="{{ $item->level }}" name="level" class="form-control @error('level')is-invalid @enderror">
+                                        <select value="{{ $item->level}}" name="level" class="form-control @error('level')is-invalid @enderror">
                                             @if ($item->level)
-                                            <option selected value="{{ $item->level }}">{{ $item->level }}</option>
+                                            <option selected value="{{ $item->level}}">{{ $item->level}}</option>
                                             @endif
                                             <option value="">- Pilih Level -</option>
                                             <option value="X">X</option>

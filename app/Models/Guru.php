@@ -18,4 +18,10 @@ class Guru extends Model
     public function walas(){
         return $this->hasMany(Walas::class, 'id_walas');
     }
+
+    public static function deleteData(int $id) {
+        Walas::where('id_guru', $id)->delete();
+
+        self::where('id', $id)->delete();
+    }
 }
