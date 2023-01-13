@@ -39,15 +39,15 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Level</label>
-                        <select value='{{ $items->mapel->nama_mapel }}' name="id_mapel"
+                        <label>Pilih Mapel</label>
+                        <select name="id_mapel"
                             class="form-control @error('id_mapel')is-invalid @enderror">
                             @if ($items->mapel->nama_mapel)
-                                <option selected value="{{ $items->mapel->id }}">{{ $items->mapel->nama_mapel }}</option>
+                                <option selected value="{{ $items->mapel->id }}">{{ $items->mapel->nama_mapel }} - {{ $items->mapel->level }}</option>
                             @endif
-                            <option value="">- Pilih Level -</option>
+                            <option value="">- Pilih Mapel -</option>
                             @foreach ($mapel as $mapel)
-                                <option value="{{ $mapel->id }}">{{ $mapel->nama_mapel }}</option>
+                                <option value="{{ $mapel->id }}">{{ $mapel->nama_mapel }} - {{ $mapel->level }}</option>
                             @endforeach
                         </select>
                         @error('id_mapel')

@@ -12,7 +12,10 @@ class Guru extends Model
     protected $table = 'tbl_gurus';
 
     public function mapel(){
-        return $this->belongsTo(Mapel::class,'id_mapel','id');
+        return $this->belongsTo(Mapel::class,'id_mapel','id')->withDefault(function ($mapel){
+            $mapel->nama_mapel= 'Tidak Ada';
+        });
+
     }
 
     public function walas(){
@@ -21,7 +24,6 @@ class Guru extends Model
 
     public static function deleteData(int $id) {
         Walas::where('id_guru', $id)->delete();
-
         self::where('id', $id)->delete();
     }
 }

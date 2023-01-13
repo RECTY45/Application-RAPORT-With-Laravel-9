@@ -116,6 +116,7 @@ class JurusanController extends Controller
      */
     public function destroy(Jurusan $jurusan)
     {
+        $check = Jurusan::deletedata($jurusan->id);
         $check = $jurusan->delete();
 
         if($check){

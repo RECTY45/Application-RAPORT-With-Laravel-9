@@ -16,6 +16,12 @@ class Jurusan extends Model
     }
 
     public function siswa(){
-        return $this->hasMany(Siswa::class,'id_jurusan');
+        return $this->hasMany(Siswa::class);
+    }
+
+    public static function deleteData(int $id) {
+
+       Mapel::where('id_jurusan', $id)->delete();
+        self::where('id', $id)->delete();
     }
 }

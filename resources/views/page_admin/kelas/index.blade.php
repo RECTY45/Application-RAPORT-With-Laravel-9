@@ -59,7 +59,7 @@
                                         @method('delete')
                                         @csrf
                                         <button type="submit"
-                                            class="border-0 bg-danger px-2 py-1 rounded text-white mx-1"><i
+                                             class="border-0 bg-danger px-2 py-1 rounded text-white mx-1" data-id="{{  $item->id }}"><i
                                                 class="bi bi-trash"></i></button>
                                     </form>
                                 </div>
@@ -88,6 +88,7 @@
 @endsection
 
 @push('script-js')
+
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -98,7 +99,8 @@
     <script src="{{ asset('assets/lib/tempusdominus/js/moment.min.js') }}"></script>
     <script src="{{ asset('assets/lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
     <script src="{{ asset('assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 
     <!-- Template Javascript -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
+
 @endpush

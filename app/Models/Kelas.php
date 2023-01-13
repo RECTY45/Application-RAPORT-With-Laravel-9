@@ -19,4 +19,10 @@ class Kelas extends Model
         return $this->hasMany(Walas::class);
     }
 
+
+    public static function deletedata(int $id) {
+        Walas::where('id_kelas', $id)->delete();
+        self::where('id', $id)->delete();
+    }
+
 }

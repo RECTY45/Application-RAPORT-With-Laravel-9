@@ -118,6 +118,7 @@ class KelasController extends Controller
      */
     public function destroy(Kelas $kelas)
     {
+        $check = Kelas::deletedata($kelas->id);
         $check = $kelas->delete();
         if($check){
              Alert::success('Success', 'Data berhasil di Hapus !!!');

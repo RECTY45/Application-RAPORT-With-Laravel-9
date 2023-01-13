@@ -47,10 +47,10 @@
                     <div class="form-group">
                         <label>Kelas</label>
                         <select name="id_kelas" class="form-control @error('id_kelas')is-invalid @enderror">
-                            <option value="{{ $item->kelas->id }}">{{ $item->kelas->nama_kelas}}</option>
+                            <option value="{{ $item->kelas->id }}">{{ $item->kelas->level }}-{{ $item->kelas->nama_kelas}}</option>
                             <option value="">- Pilih Kelas -</option>
                             @foreach ($kelass as $kelas)
-                                <option value="{{ $kelas->id  }}">{{ $kelas->nama_kelas }}</option>
+                                <option value="{{ $kelas->id  }}">{{ $kelas->level }}-{{ $kelas->nama_kelas }}</option>
                             @endforeach
                         </select>
                         @error('id_kelas')

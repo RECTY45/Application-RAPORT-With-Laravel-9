@@ -127,7 +127,6 @@ class MapelController extends Controller
     public function destroy(Mapel $mapel)
     {
         $check = $mapel->delete();
-
         if($check){
            Alert::success('Success', 'Data berhasil di Hapus !!!');
            return redirect()->back()->with('success','Data berhasil di hapus');

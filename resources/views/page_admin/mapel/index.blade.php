@@ -9,7 +9,8 @@
     <!-- Spinner End --> --}}
     <div class="card">
 
-        <div class="text-start px-4 pt-3">
+        <div class="text-start
+         px-4 pt-3">
             <section class="about" id="about">
                 <div class="row mb-2">
                     <div class="col-md-12">
@@ -61,7 +62,8 @@
                                     <form action="{{ @route('mapel.destroy', $item->id) }}" method="POST">
                                         @method('delete')
                                         @csrf
-                                        <button type="submit"
+                                        <button
+                                        type="submit"
                                             class="border-0 bg-danger px-2 py-1 rounded text-white mx-1"><i
                                                 class="bi bi-trash"></i></button>
                                     </form>

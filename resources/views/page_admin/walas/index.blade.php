@@ -7,6 +7,7 @@
         </div>
     </div>
     <!-- Spinner End --> --}}
+
     <div class="card">
 
         <div class="text-start px-4 pt-3">
@@ -26,12 +27,12 @@
         </div>
         <div class="card-body">
             @if (session()->has('success'))
-                <div class="alert-success p-3 rounded">
+                <div class="alert-success mb-5 p-3 rounded">
                     {{ session('success') }}
                 </div>
             @endif
             @if (session()->has('error'))
-                <div class="alert-success p-3 rounded">
+                <div class="alert-success mb-5 p-3 rounded">
                     {{ session('error') }}
                 </div>
             @endif
@@ -40,6 +41,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Guru</th>
+                        <th>Level</th>
                         <th>Kelas</th>
                         <th>Action</th>
                     </tr>
@@ -49,7 +51,8 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->guru->nama_guru ?? '-' }}</td>
-                            <td>{{ $item->kelas->level }}-{{ $item->kelas->nama_kelas ?? '-' }}</td>
+                            <td>{{ $item->kelas->level ?? '-' }}</td>
+                            <td>{{ $item->kelas->nama_kelas ?? '-' }}</td>
                             <td>
                                 <div class="form-control-icon d-flex">
                                     <a href="{{ @route('walas.edit', $item->id) }}" method="POST"

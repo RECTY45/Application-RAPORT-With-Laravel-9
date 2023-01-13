@@ -105,7 +105,7 @@
                             <label for="jurusan_id">Jurusan</label>
                             <select name="id_jurusan" view="{{ $item->jurusan->kode_jurusan }}" id="jurusan_id"
                                 class="form-control @error('jurusan_id')is-invalid @enderror">
-                                @if ($item->jurusan->kode_jurusan)
+                                @if ($item->jurusan->nama_jurusan)
                                     <option selected value="{{ $item->jurusan->id }}">{{ $item->jurusan->nama_jurusan }}
                                     </option>
                                 @endif

@@ -123,7 +123,7 @@ class GuruController extends Controller
     public function destroy(Guru $guru)
     {
         $check = Guru::deleteData($guru->id);
-
+        $check = $guru->delete();
         if($check){
             Alert::success('Success', 'Data berhasil di Hapus !!!');
             return back()->with('success','Data berhasil di hapus');

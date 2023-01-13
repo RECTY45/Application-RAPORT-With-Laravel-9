@@ -31,7 +31,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Nama Mapel</label>
-                                        <input value="{{ $item->nama_mapel }}" type="text" value="{{ old('nama_mapel')}}" name="nama_mapel" class="form-control @error('nama_mapel')is-invalid @enderror">
+                                        <input value="{{ $item->nama_mapel}}" type="text" value="{{ old('nama_mapel')}}" name="nama_mapel" class="form-control @error('nama_mapel')is-invalid @enderror">
                                         @error('nama_mapel')
                                             <div class="invalid-feedback">
                                                 {{ $message }}

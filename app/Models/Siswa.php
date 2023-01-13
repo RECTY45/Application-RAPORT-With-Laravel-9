@@ -12,10 +12,14 @@ class Siswa extends Model
     protected $table = 'tbl_siswas';
 
     public function kelas(){
-        return $this->belongsTo(Kelas::class,'id_kelas','id');
+        return $this->belongsTo(Kelas::class,'id_kelas','id')->withDefault(function($kelas){
+            $kelas->level = 'Tidak Ada';
+        });
     }
 
     public function jurusan(){
-        return $this->belongsTo(jurusan::class,'id_jurusan','id');
+        return $this->belongsTo(jurusan::class,'id_jurusan','id')->withDefault(function($jurusan){
+            $jurusan->nama_jurusan = 'Tidak Ada';
+        });
     }
 }
